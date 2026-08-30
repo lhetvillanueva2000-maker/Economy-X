@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_cash_two"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:cash_one",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "ex:cash_two",
+      "count": 1
+    }
+  }
+}

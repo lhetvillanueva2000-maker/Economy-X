@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_debit_card_black"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:blank_card",
+        "count": 1
+      },
+      {
+        "item": "minecraft:paper",
+        "count": 1
+      },
+      {
+        "item": "minecraft:black_dye",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "ex:debit_card_black",
+      "count": 1
+    }
+  }
+}

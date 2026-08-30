@@ -1,0 +1,15 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ex:blank_card",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "blank_card",
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

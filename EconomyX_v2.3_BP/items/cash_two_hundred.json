@@ -1,0 +1,15 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ex:cash_two_hundred",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "cash_two_hundred",
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

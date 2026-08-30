@@ -1,0 +1,130 @@
+## EconomyX (EX) — English (US) Localization
+
+## Creative inventory groups
+ex:itemGroup.name.debit_cards=EconomyX Debit Cards
+ex:itemGroup.name.credit_cards=EconomyX Credit Cards
+ex:itemGroup.name.coins=EconomyX Coins
+ex:itemGroup.name.cash=EconomyX Cash & Bills
+ex:itemGroup.name.components=EconomyX Components
+ex:itemGroup.name.machines=EconomyX Machines
+
+## Debit Cards — Standard Tier
+item.ex:debit_card_pink=Pink Debit Card
+item.ex:debit_card_magenta=Magenta Debit Card
+item.ex:debit_card_purple=Purple Debit Card
+item.ex:debit_card_blue=Blue Debit Card
+item.ex:debit_card_light_blue=Light Blue Debit Card
+item.ex:debit_card_cyan=Cyan Debit Card
+item.ex:debit_card_black=Black Debit Card
+item.ex:debit_card_brown=Brown Debit Card
+item.ex:debit_card_green=Green Debit Card
+item.ex:debit_card_grey=Grey Debit Card
+item.ex:debit_card_light_gray=Light Gray Debit Card
+item.ex:debit_card_lime=Lime Debit Card
+item.ex:debit_card_orange=Orange Debit Card
+item.ex:debit_card_red=Red Debit Card
+item.ex:debit_card_white=White Debit Card
+item.ex:debit_card_yellow=Yellow Debit Card
+
+## Debit Cards — Premium & Legendary Tiers
+item.ex:debit_card_black_silver=Black & Silver Debit Card
+item.ex:debit_card_black_gold=Black & Gold Debit Card
+
+## Credit Cards
+item.ex:credit_card_dirt=Dirt Credit Card
+item.ex:credit_card_gold=Gold Credit Card
+item.ex:credit_card_diamond=Diamond Credit Card
+item.ex:credit_card_netherite=Netherite Credit Card
+item.ex:credit_card_amex_platinum=Amex Platinum Credit Card
+
+## Currency — Coins
+item.ex:coin_bronze=Bronze Coin
+item.ex:coin_two=Two Cent Coin
+item.ex:coin_silver=Silver Coin
+item.ex:coin_gold=Gold Coin
+item.ex:coin_fifty=Fifty Cent Coin
+item.ex:coin_hundred=Hundred Cent Coin
+
+## Currency — Cash
+item.ex:cash_one=1 UD Bill
+item.ex:cash_two=2 UD Bill
+item.ex:cash_five=5 UD Bill
+item.ex:cash_single=20 UD Bill
+item.ex:cash_fifty=50 UD Bill
+item.ex:cash_stack=100 UD Bill
+item.ex:cash_two_hundred=200 UD Bill
+item.ex:cash_bundle=500 UD Bill
+item.ex:cash_thousand=1000 UD Bill
+
+## Crafting Components
+item.ex:iron_sheet=Iron Sheet
+item.ex:medium_iron_sheet=Medium Sized Metal Sheet
+item.ex:blank_card=Plain Card
+
+## Blocks
+tile.ex:machine_base.name=EconomyX Machine Base
+tile.ex:atm_head.name=ATM Head
+tile.ex:utm_head.name=UTM Head
+tile.ex:payment_head.name=Debt Payment Block
+tile.ex:lottery_block.name=Lottery Block
+tile.ex:blackjack_block.name=Blackjack Block
+
+## Playing Cards
+ex:itemGroup.name.playing_cards=EconomyX Playing Cards
+item.ex:card_spades_a=Ace of Spades
+item.ex:card_spades_2=2 of Spades
+item.ex:card_spades_3=3 of Spades
+item.ex:card_spades_4=4 of Spades
+item.ex:card_spades_5=5 of Spades
+item.ex:card_spades_6=6 of Spades
+item.ex:card_spades_7=7 of Spades
+item.ex:card_spades_8=8 of Spades
+item.ex:card_spades_9=9 of Spades
+item.ex:card_spades_10=10 of Spades
+item.ex:card_spades_j=Jack of Spades
+item.ex:card_spades_q=Queen of Spades
+item.ex:card_spades_k=King of Spades
+item.ex:card_hearts_a=Ace of Hearts
+item.ex:card_hearts_2=2 of Hearts
+item.ex:card_hearts_3=3 of Hearts
+item.ex:card_hearts_4=4 of Hearts
+item.ex:card_hearts_5=5 of Hearts
+item.ex:card_hearts_6=6 of Hearts
+item.ex:card_hearts_7=7 of Hearts
+item.ex:card_hearts_8=8 of Hearts
+item.ex:card_hearts_9=9 of Hearts
+item.ex:card_hearts_10=10 of Hearts
+item.ex:card_hearts_j=Jack of Hearts
+item.ex:card_hearts_q=Queen of Hearts
+item.ex:card_hearts_k=King of Hearts
+item.ex:card_clubs_a=Ace of Clubs
+item.ex:card_clubs_2=2 of Clubs
+item.ex:card_clubs_3=3 of Clubs
+item.ex:card_clubs_4=4 of Clubs
+item.ex:card_clubs_5=5 of Clubs
+item.ex:card_clubs_6=6 of Clubs
+item.ex:card_clubs_7=7 of Clubs
+item.ex:card_clubs_8=8 of Clubs
+item.ex:card_clubs_9=9 of Clubs
+item.ex:card_clubs_10=10 of Clubs
+item.ex:card_clubs_j=Jack of Clubs
+item.ex:card_clubs_q=Queen of Clubs
+item.ex:card_clubs_k=King of Clubs
+item.ex:card_diamonds_a=Ace of Diamonds
+item.ex:card_diamonds_2=2 of Diamonds
+item.ex:card_diamonds_3=3 of Diamonds
+item.ex:card_diamonds_4=4 of Diamonds
+item.ex:card_diamonds_5=5 of Diamonds
+item.ex:card_diamonds_6=6 of Diamonds
+item.ex:card_diamonds_7=7 of Diamonds
+item.ex:card_diamonds_8=8 of Diamonds
+item.ex:card_diamonds_9=9 of Diamonds
+item.ex:card_diamonds_10=10 of Diamonds
+item.ex:card_diamonds_j=Jack of Diamonds
+item.ex:card_diamonds_q=Queen of Diamonds
+item.ex:card_diamonds_k=King of Diamonds
+item.ex:card_back=Face-Down Card
+
+item.ex:copper_stick=Copper Stick
+item.ex:ex_pickaxe=EX Pickaxe
+ex:itemGroup.name.tools=EconomyX Tools

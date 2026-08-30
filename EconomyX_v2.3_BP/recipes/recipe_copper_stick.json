@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_copper_stick"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:copper_ingot",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "ex:copper_stick",
+      "count": 8
+    }
+  }
+}

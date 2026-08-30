@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "ex:card_clubs_a",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/cards/card_clubs_a_sheet"
+      },
+      "geometry": {
+        "default": "geometry.ex_card"
+      },
+      "render_controllers": [
+        "controller.render.ex_item"
+      ]
+    }
+  }
+}

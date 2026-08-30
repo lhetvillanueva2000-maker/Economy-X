@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_atm_head"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:iron_sheet",
+        "count": 3
+      },
+      {
+        "item": "minecraft:redstone",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glass_pane",
+        "count": 1
+      },
+      {
+        "item": "minecraft:iron_ingot",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "ex:atm_head",
+      "count": 1
+    }
+  }
+}

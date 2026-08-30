@@ -1,0 +1,213 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:debit_card_black_gold",
+              "name": "ex:itemGroup.name.debit_cards"
+            },
+            "items": [
+              "ex:debit_card_black_gold",
+              "ex:debit_card_black_silver",
+              "ex:debit_card_black",
+              "ex:debit_card_blue",
+              "ex:debit_card_brown",
+              "ex:debit_card_cyan",
+              "ex:debit_card_green",
+              "ex:debit_card_grey",
+              "ex:debit_card_light_blue",
+              "ex:debit_card_light_gray",
+              "ex:debit_card_lime",
+              "ex:debit_card_magenta",
+              "ex:debit_card_orange",
+              "ex:debit_card_pink",
+              "ex:debit_card_purple",
+              "ex:debit_card_red",
+              "ex:debit_card_white",
+              "ex:debit_card_yellow"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:credit_card_amex_platinum",
+              "name": "ex:itemGroup.name.credit_cards"
+            },
+            "items": [
+              "ex:credit_card_dirt",
+              "ex:credit_card_gold",
+              "ex:credit_card_diamond",
+              "ex:credit_card_netherite",
+              "ex:credit_card_amex_platinum"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:coin_gold",
+              "name": "ex:itemGroup.name.coins"
+            },
+            "items": [
+              "ex:coin_bronze",
+              "ex:coin_two",
+              "ex:coin_silver",
+              "ex:coin_gold",
+              "ex:coin_fifty",
+              "ex:coin_hundred"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:cash_stack",
+              "name": "ex:itemGroup.name.cash"
+            },
+            "items": [
+              "ex:cash_one",
+              "ex:cash_two",
+              "ex:cash_five",
+              "ex:cash_single",
+              "ex:cash_fifty",
+              "ex:cash_stack",
+              "ex:cash_two_hundred",
+              "ex:cash_bundle",
+              "ex:cash_thousand"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:iron_sheet",
+              "name": "ex:itemGroup.name.components"
+            },
+            "items": [
+              "ex:iron_sheet",
+              "ex:medium_iron_sheet",
+              "ex:blank_card",
+              "ex:copper_stick"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:atm_head",
+              "name": "ex:itemGroup.name.machines"
+            },
+            "items": [
+              "ex:machine_base",
+              "ex:atm_head",
+              "ex:utm_head",
+              "ex:lottery_block",
+              "ex:blackjack_block",
+              "ex:payment_head"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:card_spades_a",
+              "name": "ex:itemGroup.name.playing_cards"
+            },
+            "items": [
+              "ex:card_spades_a",
+              "ex:card_spades_2",
+              "ex:card_spades_3",
+              "ex:card_spades_4",
+              "ex:card_spades_5",
+              "ex:card_spades_6",
+              "ex:card_spades_7",
+              "ex:card_spades_8",
+              "ex:card_spades_9",
+              "ex:card_spades_10",
+              "ex:card_spades_j",
+              "ex:card_spades_q",
+              "ex:card_spades_k",
+              "ex:card_hearts_a",
+              "ex:card_hearts_2",
+              "ex:card_hearts_3",
+              "ex:card_hearts_4",
+              "ex:card_hearts_5",
+              "ex:card_hearts_6",
+              "ex:card_hearts_7",
+              "ex:card_hearts_8",
+              "ex:card_hearts_9",
+              "ex:card_hearts_10",
+              "ex:card_hearts_j",
+              "ex:card_hearts_q",
+              "ex:card_hearts_k",
+              "ex:card_clubs_a",
+              "ex:card_clubs_2",
+              "ex:card_clubs_3",
+              "ex:card_clubs_4",
+              "ex:card_clubs_5",
+              "ex:card_clubs_6",
+              "ex:card_clubs_7",
+              "ex:card_clubs_8",
+              "ex:card_clubs_9",
+              "ex:card_clubs_10",
+              "ex:card_clubs_j",
+              "ex:card_clubs_q",
+              "ex:card_clubs_k",
+              "ex:card_diamonds_a",
+              "ex:card_diamonds_2",
+              "ex:card_diamonds_3",
+              "ex:card_diamonds_4",
+              "ex:card_diamonds_5",
+              "ex:card_diamonds_6",
+              "ex:card_diamonds_7",
+              "ex:card_diamonds_8",
+              "ex:card_diamonds_9",
+              "ex:card_diamonds_10",
+              "ex:card_diamonds_j",
+              "ex:card_diamonds_q",
+              "ex:card_diamonds_k",
+              "ex:card_back"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "equipment",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:ex_pickaxe",
+              "name": "ex:itemGroup.name.tools"
+            },
+            "items": [
+              "ex:ex_pickaxe"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

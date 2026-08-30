@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_cash_stack"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:cash_single",
+        "count": 5
+      },
+      {
+        "item": "minecraft:paper",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "ex:cash_stack",
+      "count": 1
+    }
+  }
+}

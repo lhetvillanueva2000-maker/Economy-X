@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "ex:card_diamonds_k",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/cards/card_diamonds_k_sheet"
+      },
+      "geometry": {
+        "default": "geometry.ex_card"
+      },
+      "render_controllers": [
+        "controller.render.ex_item"
+      ]
+    }
+  }
+}

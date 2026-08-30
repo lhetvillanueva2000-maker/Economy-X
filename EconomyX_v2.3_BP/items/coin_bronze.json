@@ -1,0 +1,15 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ex:coin_bronze",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "coin_bronze",
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

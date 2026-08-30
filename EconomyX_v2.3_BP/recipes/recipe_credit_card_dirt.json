@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_credit_card_dirt"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:blank_card",
+        "count": 1
+      },
+      {
+        "item": "minecraft:paper",
+        "count": 1
+      },
+      {
+        "item": "minecraft:dirt",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "ex:credit_card_dirt",
+      "count": 1
+    }
+  }
+}

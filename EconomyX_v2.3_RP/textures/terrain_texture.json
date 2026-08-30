@@ -1,0 +1,36 @@
+{
+  "resource_pack_name": "economyx",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "machine_base": {
+      "textures": "textures/blocks/machines/machine_base"
+    },
+    "atm_head_atlas": {
+      "textures": "textures/blocks/machines/atm_head_atlas"
+    },
+    "utm_head_atlas": {
+      "textures": "textures/blocks/machines/utm_head_atlas"
+    },
+    "lottery_block_front": {
+      "textures": "textures/blocks/gambling/lottery_block_front"
+    },
+    "lottery_block_top": {
+      "textures": "textures/blocks/gambling/lottery_block_top"
+    },
+    "lottery_block_panel": {
+      "textures": "textures/blocks/gambling/lottery_block_panel"
+    },
+    "blackjack_block_front": {
+      "textures": "textures/blocks/gambling/blackjack_block_front"
+    },
+    "blackjack_block_top": {
+      "textures": "textures/blocks/gambling/blackjack_block_top"
+    },
+    "blackjack_block_panel": {
+      "textures": "textures/blocks/gambling/blackjack_block_panel"
+    },
+    "payment_head_atlas": {
+      "textures": "textures/blocks/machines/payment_head_atlas"
+    }
+  }
+}

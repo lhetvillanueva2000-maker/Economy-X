@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_coin_two"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:copper_ingot",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "ex:coin_two",
+      "count": 1
+    }
+  }
+}

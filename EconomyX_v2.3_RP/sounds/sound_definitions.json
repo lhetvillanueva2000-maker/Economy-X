@@ -1,0 +1,15 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "ex.card_insert": {
+      "category": "block",
+      "__use__": "Mechanical card-reader intake: solenoid click, roller motor, seating clunk.",
+      "sounds": [{ "name": "sounds/ex/card_insert", "stream": false, "volume": 0.9 }]
+    },
+    "ex.card_return": {
+      "category": "block",
+      "__use__": "Card ejected back out of the reader.",
+      "sounds": [{ "name": "sounds/ex/card_return", "stream": false, "volume": 0.9 }]
+    }
+  }
+}

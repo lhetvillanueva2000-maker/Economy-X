@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_machine_base"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:iron_block",
+        "count": 1
+      },
+      {
+        "item": "minecraft:stone_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "ex:machine_base",
+      "count": 1
+    }
+  }
+}

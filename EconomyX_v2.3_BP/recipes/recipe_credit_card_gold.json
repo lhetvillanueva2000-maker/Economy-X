@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_credit_card_gold"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "ex:credit_card_dirt",
+        "count": 1
+      },
+      {
+        "item": "minecraft:gold_ingot",
+        "count": 1
+      },
+      {
+        "item": "minecraft:gold_block",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "ex:credit_card_gold",
+      "count": 1
+    }
+  }
+}

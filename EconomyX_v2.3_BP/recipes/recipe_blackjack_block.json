@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ex:recipe_blackjack_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:iron_block",
+        "count": 1
+      },
+      {
+        "item": "minecraft:emerald",
+        "count": 3
+      },
+      {
+        "item": "minecraft:paper",
+        "count": 4
+      }
+    ],
+    "result": {
+      "item": "ex:blackjack_block",
+      "count": 1
+    }
+  }
+}

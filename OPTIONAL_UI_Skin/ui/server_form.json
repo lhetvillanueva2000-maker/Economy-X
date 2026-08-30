@@ -1,0 +1,76 @@
+{
+  "namespace": "server_form",
+
+  "//": "EconomyX v2.3 optional skin — UNVERIFIED, opt-in. See ../README.txt.",
+  "//_how_it_works": "Every EconomyX form title starts with the invisible marker '§8§r' (UI_TAG in main.js). ex_is_economyx is true only for those forms, so the recolour never touches vanilla forms or forms from other add-ons.",
+
+  "ex_panel_bg": {
+    "type": "image",
+    "texture": "textures/ui/dialog_background_opaque",
+    "size": [ "100%", "100%" ],
+    "color": [ 0.102, 0.039, 0.102 ],
+    "layer": -1,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_title - '§8§r') = #ex_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "ex_panel_border": {
+    "type": "image",
+    "texture": "textures/ui/dialog_background_hollow_1",
+    "size": [ "100%", "100%" ],
+    "color": [ 0.353, 0.353, 0.353 ],
+    "layer": 0,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_title - '§8§r') = #ex_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "ex_skin_layer": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": -2,
+    "controls": [
+      { "ex_panel_bg@server_form.ex_panel_bg": {} },
+      { "ex_panel_border@server_form.ex_panel_border": {} }
+    ]
+  },
+
+  "long_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [ { "ex_skin_layer@server_form.ex_skin_layer": {} } ]
+      }
+    ]
+  },
+
+  "custom_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [ { "ex_skin_layer@server_form.ex_skin_layer": {} } ]
+      }
+    ]
+  }
+}
