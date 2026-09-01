@@ -38,7 +38,7 @@
       },
       "minecraft:enchantable": {
         "value": 14,
-        "slot": "pickaxe"
+        "slot": "all"
       }
     }
   }
