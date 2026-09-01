@@ -22,9 +22,12 @@
 import { world, system, EquipmentSlot, ItemStack } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { CONFIG, getTierForColor, getCreditTier, formatMoney } from "./config.js";
-// Side-effect import: registers the 3D dropped-item props for the playing
-// cards and the EX Tool. Nothing here calls into it.
+// Side-effect imports. props.js registers the 3D dropped-item props for the
+// playing cards and the EX Tool; guards.js keeps cards out of mob hands and
+// holds the EX Tool to its survival enchantment range. Nothing here calls
+// into either.
 import "./props.js";
+import "./guards.js";
 
 /* ------------------------------------------------------------
  *  Constants

@@ -1,15 +1,19 @@
 {
   "namespace": "server_form",
 
-  "//": "EconomyX v2.3 optional skin — UNVERIFIED, opt-in. See ../README.txt.",
-  "//_how_it_works": "Every EconomyX form title starts with the invisible marker '§8§r' (UI_TAG in main.js). ex_is_economyx is true only for those forms, so the recolour never touches vanilla forms or forms from other add-ons.",
+  "//": "EconomyX skin. Paints the dark panel and grey border behind EconomyX's own forms and leaves every other form in the game alone.",
+
+  "//_targeting": "Every EconomyX form title starts with the marker '§8§r' (UI_TAG in scripts/main.js) — a colour code followed straight away by a reset, so it renders as nothing but is still readable by the #title_text binding. ex_skin_on is true only for those forms.",
+
+  "//_safety": "Both layers are declared visible:false and are only switched on by the binding below. If the binding ever fails to resolve on a future Bedrock version, the layers stay off and every form falls back to stock appearance — the skin can fail quiet, but it cannot paint over a form or swallow its buttons. Nothing here redefines vanilla's title, body, button factory or close button; the layers are inserted behind them with the 'modifications' operation, so the machinery that drives the forms is untouched.",
 
   "ex_panel_bg": {
     "type": "image",
     "texture": "textures/ui/dialog_background_opaque",
     "size": [ "100%", "100%" ],
     "color": [ 0.102, 0.039, 0.102 ],
-    "layer": -1,
+    "layer": -2,
+    "visible": false,
     "bindings": [
       {
         "binding_name": "#title_text",
@@ -29,7 +33,8 @@
     "texture": "textures/ui/dialog_background_hollow_1",
     "size": [ "100%", "100%" ],
     "color": [ 0.353, 0.353, 0.353 ],
-    "layer": 0,
+    "layer": -1,
+    "visible": false,
     "bindings": [
       {
         "binding_name": "#title_text",
@@ -47,7 +52,7 @@
   "ex_skin_layer": {
     "type": "panel",
     "size": [ "100%", "100%" ],
-    "layer": -2,
+    "layer": -3,
     "controls": [
       { "ex_panel_bg@server_form.ex_panel_bg": {} },
       { "ex_panel_border@server_form.ex_panel_border": {} }
