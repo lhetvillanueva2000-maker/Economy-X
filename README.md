@@ -1,0 +1,358 @@
+# EconomyX (EX)
+
+A Minecraft **Bedrock Edition** add-on that puts a working bank inside your
+world: debit cards with real balances, credit cards with real debt, physical
+cash you can carry and lose, ATMs and terminals you have to walk up to and
+sign into, and two gambling blocks that will happily take it all off you.
+
+**Author:** Usersainyy
+**Current version:** 2.6
+**Requires:** Minecraft Bedrock **1.26.13 or newer**
+
+---
+
+## Installing
+
+Download `EconomyX_v2.6.mcaddon` and open it — Minecraft imports both packs
+for you. Then, in your world settings, enable **both**:
+
+- `EconomyX v2.6 [BP]` under Behavior Packs
+- `EconomyX v2.6 [RP]` under Resource Packs
+
+No experiment toggles are needed. The pack builds against the stable scripting
+API (`@minecraft/server` 2.6.0, `@minecraft/server-ui` 2.0.0), so **Beta APIs
+can stay off**.
+
+The two packs depend on each other and will refuse to load alone.
+
+---
+
+## The idea
+
+Money is a physical object. Coins and bills sit in your inventory, take up
+slots, and drop when you die. A card is a physical object too — it holds its
+own balance, and if you lose the card, you lose the account.
+
+Nothing is tied to your player name. Everything lives on the item.
+
+---
+
+## Currency
+
+The unit is **UD**. Coins and bills are both real items; they only differ in
+denomination.
+
+**Coins**
+
+| Bronze | Two Cent | Silver | Gold | Fifty Cent | Hundred Cent |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 2 | 5 | 10 | 50 | 100 |
+
+**Bills**
+
+| 1 UD | 2 UD | 5 UD | 20 UD | 50 UD | 100 UD | 200 UD | 500 UD | 1000 UD |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 2 | 5 | 20 | 50 | 100 | 200 | 500 | 1000 |
+
+Vanilla valuables are accepted at a terminal too: **Emerald 190**,
+**Diamond 150**.
+
+Coins are crafted one-for-one from the matching ingot. Bills are crafted by
+bundling smaller bills with paper.
+
+---
+
+## Cards
+
+### Debit — 18 of them
+
+Sixteen dye colours plus two premium tiers. A debit card holds a **balance**.
+
+| Tier | Card | Transfer fee | Cashback |
+|---|---|---:|---:|
+| Standard | the 16 dye colours | 5% | 0% |
+| Premium | Black & Silver | 2.5% | 5% |
+| Legendary | Black & Gold | 0% | 10% |
+
+Transfer limit is a flat **50,000 UD** on every tier.
+
+Craft: `Plain Card` + `Paper` + the matching dye. The two premium cards also
+want an ingot — silver takes iron, gold takes gold.
+
+### Credit — 5 of them
+
+A credit card holds **debt**, not a balance. The tier sets how much you can
+borrow and how brutally it compounds.
+
+| Card | Credit limit | Interest rate |
+|---|---:|---:|
+| Dirt | 1,000 | 0.5 |
+| Gold | 10,000 | 0.75 |
+| Diamond | 50,000 | 1.0 |
+| Netherite | 120,000 | 1.25 |
+| Amex Platinum | unlimited | 1.5 |
+
+> **Read the rate column again.** Those are multipliers, not percentages. A
+> rate of 0.5 means the debt grows by **50% every time interest is charged**,
+> and it compounds. This is deliberate. If you want something survivable, set
+> `interestRate` to `0.005`–`0.015` in `scripts/config.js`.
+
+Interest is charged **every time you borrow**, and again every **10 in-game
+days** while any debt remains. It is applied lazily, the moment you next touch
+the card. On top of that, the deeper you are into your limit the harsher the
+rate gets, up to **2×** the tier rate when you are maxed out.
+
+Dirt → Gold → Diamond → Netherite are each crafted by upgrading the one below.
+Amex Platinum needs a Netherite card, a Nether Star and an Emerald Block.
+
+---
+
+## Opening an account
+
+Hold a fresh card and **sneak + use** it. Never a plain tap — a plain tap does
+nothing at all.
+
+You pick a **5-digit account number** and a **6-digit PIN** on an on-screen
+keypad. There is no text field anywhere: the only inputs are digit buttons, so
+a 6-digit PIN can only ever be 6 digits.
+
+Account numbers are unique **per card class**. Two debit cards can't share a
+number, but a debit and a credit card can. The number is stamped onto the
+card's lore so you can read it in your inventory.
+
+Signing up does **not** open a bank menu. Sign-up is not sign-in.
+
+Sneak + use a registered card any time to read its balance or debt off the
+action bar.
+
+---
+
+## The machines
+
+All three banking heads must sit **directly on top of an EconomyX Machine
+Base**, and they face you when you place them.
+
+| Machine | Takes | Does |
+|---|---|---|
+| **ATM Head** | debit **and** credit | **Withdrawals only.** Debit pulls from your balance; credit is a cash advance that adds debt and charges interest immediately. |
+| **UTM Head** | **debit only** | Everything except withdrawal — deposit, transfer, balance, settings. |
+| **Debt Payment Block** | **credit only** | The only place credit debt gets settled. |
+| **Lottery / Blackjack** | nothing in hand | Gambling. Pick your funding source in the menu. |
+
+Machines are hard to break and **only the EX Tool can dismantle one**, in
+creative and survival alike. Every other attempt is cancelled outright.
+
+### Signing in
+
+A terminal never remembers anyone. **Even the owner types the PIN, every
+session.**
+
+When you sign in the terminal **swallows your card** — it leaves your
+inventory. You get it back with the **Eject Card** button, and only that
+button. Back buttons return you to the terminal's home screen. There is no
+idle timeout: a card in a machine keeps the session alive indefinitely.
+
+Bedrock will not let an add-on remove a form's close (X) button, so terminal
+screens **reopen themselves** if you close them. Eject is the real exit.
+
+Card return has three fallbacks — hand, then inventory, then the floor — so a
+card can never be destroyed. If you log out mid-session, the card is parked in
+world storage and handed back the next time you spawn.
+
+Five wrong PINs locks the card. The owner clears the lockout by sneak + using
+it.
+
+---
+
+## Gambling
+
+Both blocks open on an **empty hand**. Choose Debit card, Credit card or Cash
+inside the menu; the game finds it in your inventory.
+
+One payout rule covers both:
+
+- **Win** → you keep your stake and gain **50%** of it. Bet 100, walk away +50.
+- **Lose** → you lose your stake **and 50% more**. Bet 150, you are down 225.
+
+Bets are capped at your funds ÷ 1.5, so a losing hand can never overdraw a
+balance or take cash you are not carrying.
+
+**Lottery** is a straight roll — **60% win chance**. Be clear-eyed about what
+that means with a 1.5× loss: it is a **30% house edge**, about −30 UD for every
+100 you stake. Break-even would be a 75% win rate. `lotteryWinChance` in
+`config.js` is one line if you want to move it.
+
+**Blackjack** deals you two cards against a dealer who stands on 17. Double,
+Hit and Stand all work; Double takes exactly one more card and stands. A tie
+pushes and nothing moves.
+
+Losses on a credit card are borrowed money — they land on your debt and accrue
+interest like anything else.
+
+---
+
+## Playing cards & the EX Tool
+
+A full **55-card set**: the 52-card deck, two jokers, and a face-down card.
+They render as **real 3D models** both in your hand and lying on the ground.
+
+Dropped cards and tools are swapped for custom prop entities so they can carry
+a model. That has a cost worth knowing:
+
+> Dropped cards and EX Tools **cannot be collected by hoppers or minecarts**,
+> and they do not merge into bigger stacks on the ground. Gravity, pickup and
+> the 5-minute despawn all behave normally. Set `ENABLE_3D_DROPS` to `false`
+> at the top of `scripts/props.js` for plain vanilla drops.
+
+**Mobs cannot hold playing cards.** Zombies and friends will grab anything off
+the floor, so a sweep takes cards back off them and drops them on the ground —
+never deletes them. Armour stands and item frames are left alone, so you can
+still put a card on display.
+
+The **EX Tool** is the pickaxe-class tool that dismantles machines. 890
+durability, 8 attack damage, repairs with iron, and enchantable with anything.
+
+Its enchant slot is `all`, so an operator can `/enchant` it freely. That is
+intentional: `/enchant` needs operator, operator means cheats are on, so a
+survival player carrying a Sharpness EX Tool has visibly cheated and the mod
+does not police it. Note that **Sharpness genuinely works** — it stacks on the
+tool's 8 damage — while **Density, Breach and Wind Burst apply but do nothing**,
+because their effects are wired to the Mace's own smash mechanic.
+
+Craft: `Iron, Copper, Iron` / `Copper Stick` / `Stick`.
+
+---
+
+## Crafting quick reference
+
+| Item | Recipe |
+|---|---|
+| Iron Sheet | 1 Iron Ingot → 3 |
+| Medium Sized Metal Sheet | Iron Sheet + Iron Nugget |
+| Plain Card | 1 Medium Sized Metal Sheet |
+| Copper Stick | 2 Copper Ingots → **8** |
+| EX Tool | `ICI` / `_S_` / `_T_` — I iron, C copper, S copper stick, T stick |
+| Machine Base | Iron Block + Stone Slab |
+| ATM Head | Iron Sheet + Redstone + Glass Pane + Iron Ingot |
+| UTM Head | Iron Sheet + Redstone + Glass Pane + Gold Ingot |
+| Debt Payment Block | Iron Sheet + Redstone + Glass Pane + Redstone Block |
+| Lottery Block | Iron Block + Emerald + Glass Pane |
+| Blackjack Block | Iron Block + Emerald + Paper |
+
+Playing cards have no recipe — they are creative-only.
+
+**Create mod bridge:** `create:iron_sheet` converts to `ex:iron_sheet` if Create
+is installed. EconomyX has **no hard dependency** on Create; if it is absent the
+recipe simply never registers.
+
+---
+
+## Tuning it
+
+Everything worth balancing lives in `EconomyX_v2.6_BP/scripts/config.js`.
+
+| Setting | Default | What it does |
+|---|---|---|
+| `creditTiers[*].interestRate` | 0.5 – 1.5 | Interest multiplier per credit tier |
+| `interest.accrualDays` | 10 | In-game days between interest charges |
+| `interest.maxDebtPenaltyMultiplier` | 2.0 | Worst-case rate multiplier at your limit |
+| `gambling.winBonus` | 0.5 | Fraction of stake gained on a win |
+| `gambling.lossPenalty` | 0.5 | Extra fraction of stake lost on a loss |
+| `gambling.lotteryWinChance` | 0.6 | Lottery win probability |
+| `security.pinLength` | 6 | PIN digits |
+| `security.accountNumberLength` | 5 | Account number digits |
+| `security.maxPinFailures` | 5 | Wrong PINs before lockout |
+| `transfer.defaultRadius` | 15 | Blocks a transfer can reach |
+| `tiers[*].transferLimit` | 50000 | Per-transfer cap |
+| `values` | — | UD value of every coin, bill and vanilla valuable |
+
+---
+
+## What's in the box
+
+98 items · 6 blocks · 50 recipes · 56 3D attachables · 2 prop entities ·
+2 custom sounds · 5 geometries
+
+- 18 debit cards, 5 credit cards
+- 6 coins, 9 bills
+- 55 playing cards
+- 4 components + the EX Tool
+- 6 machine blocks
+
+---
+
+## Repository layout
+
+```
+EconomyX_v2.6_BP/          behaviour pack
+├── blocks/                6 machine blocks
+├── entities/              card_prop, tool_prop
+├── item_catalog/          creative menu groups
+├── items/                 43 items + items/cards/ (55 playing cards)
+├── recipes/               50 recipes
+└── scripts/
+    ├── main.js            banking, terminals, gambling, machines
+    ├── config.js          all the balance numbers
+    ├── props.js           3D dropped-item props
+    └── guards.js          keeps cards out of mob hands
+
+EconomyX_v2.6_RP/          resource pack
+├── animations/            held + dropped animation
+├── attachables/           56 3D held models — must stay FLAT
+├── entity/                client entities for the props
+├── models/entity/         geometry.ex_card, geometry.ex_tool
+├── render_controllers/
+├── sounds/ex/             card_insert, card_return
+├── texts/
+├── textures/
+└── ui/server_form.json    the EconomyX form skin
+```
+
+---
+
+## Known limitations
+
+Stated plainly rather than buried:
+
+- **The UI skin is unverified in-game.** It restyles EconomyX's forms via
+  `ui/server_form.json`. It is written the safe way — it *inserts* a background
+  layer rather than replacing vanilla's form structure, and both layers default
+  to invisible so a binding that stops resolving turns the skin off instead of
+  breaking a form. If a screen ever misbehaves, deleting
+  `EconomyX_v2.6_RP/ui/server_form.json` reverts the look and changes nothing
+  else.
+- **Dropped cards and tools are not item entities** — see the note above about
+  hoppers and stack merging.
+- **Density, Breach and Wind Burst are cosmetic** on the EX Tool.
+- **Interest is punishing by design.** See the warning in the credit section.
+- **Custom Lottery and Blackjack panels** are not built. Both use the standard
+  form layout.
+
+---
+
+## Version history
+
+| Version | What landed |
+|---|---|
+| **2.6** | Stopped policing EX Tool enchantments; enchant slot opened to `all` so `/enchant` actually works |
+| **2.5** | UI skin moved into the resource pack proper; mobs can no longer hold playing cards |
+| **2.4** | New 55-card set and EX Tool with 3D held and dropped models, replacing the old cards and the EX Pickaxe |
+| **2.3** | Rebuilt the debit terminal, redesigned every screen, fixed back-button navigation, new gambling payouts, empty-hand gambling access |
+| **2.2** | Last release before the terminal rebuild |
+
+### Upgrading from 2.3 or earlier
+
+The playing cards and the tool were replaced wholesale in 2.4 and their
+identifiers changed (`ex:card_spades_a` → `ex:card_ace_of_spades`,
+`ex:ex_pickaxe` → `ex:ex_tool`). Any old playing cards or EX Pickaxes sitting in
+a world will disappear on update. **Debit and credit cards are unaffected** —
+balances, debts, PINs and account numbers all carry over.
+
+---
+
+## Credits
+
+Built by **Usersainyy**. The playing-card and EX Tool set was co-created with
+Claude and Gemini before being folded into EconomyX.
+
+Not affiliated with Mojang or Microsoft.
