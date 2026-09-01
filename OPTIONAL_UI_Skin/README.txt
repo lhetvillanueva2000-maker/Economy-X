@@ -31,16 +31,16 @@ it render.
 HOW TO TRY IT
 -------------
 1. Copy the "ui" folder from here into:
-       EconomyX_v2.3_RP/ui
+       EconomyX_v2.4_RP/ui
    so you end up with:
-       EconomyX_v2.3_RP/ui/server_form.json
+       EconomyX_v2.4_RP/ui/server_form.json
 
 2. Re-import the pack (or re-enter the world) and open any EconomyX
    terminal.
 
 TO REVERT
 ---------
-Delete EconomyX_v2.3_RP/ui/server_form.json. That is the whole rollback.
+Delete EconomyX_v2.4_RP/ui/server_form.json. That is the whole rollback.
 Every screen, button and flow keeps working — only the colour goes back to
 stock Bedrock.
 

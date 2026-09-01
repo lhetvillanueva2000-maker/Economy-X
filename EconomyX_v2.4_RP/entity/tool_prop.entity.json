@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ex:tool_prop",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/ex/ex_tool"
+      },
+      "geometry": {
+        "default": "geometry.ex_tool"
+      },
+      "animations": {
+        "bob": "animation.ex_tool.bob"
+      },
+      "scripts": {
+        "animate": [
+          "bob"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

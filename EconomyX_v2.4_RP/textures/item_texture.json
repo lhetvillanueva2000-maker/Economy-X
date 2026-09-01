@@ -1,0 +1,300 @@
+{
+  "resource_pack_name": "economyx",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "debit_card_black_gold": {
+      "textures": "textures/items/debit_cards/debit_card_black_gold"
+    },
+    "debit_card_pink": {
+      "textures": "textures/items/debit_cards/debit_card_pink"
+    },
+    "debit_card_magenta": {
+      "textures": "textures/items/debit_cards/debit_card_magenta"
+    },
+    "debit_card_purple": {
+      "textures": "textures/items/debit_cards/debit_card_purple"
+    },
+    "debit_card_blue": {
+      "textures": "textures/items/debit_cards/debit_card_blue"
+    },
+    "debit_card_light_blue": {
+      "textures": "textures/items/debit_cards/debit_card_light_blue"
+    },
+    "debit_card_cyan": {
+      "textures": "textures/items/debit_cards/debit_card_cyan"
+    },
+    "coin_bronze": {
+      "textures": "textures/items/coins/coin_bronze"
+    },
+    "coin_silver": {
+      "textures": "textures/items/coins/coin_silver"
+    },
+    "coin_gold": {
+      "textures": "textures/items/coins/coin_gold"
+    },
+    "cash_single": {
+      "textures": "textures/items/cash/cash_single"
+    },
+    "cash_stack": {
+      "textures": "textures/items/cash/cash_stack"
+    },
+    "cash_bundle": {
+      "textures": "textures/items/cash/cash_bundle"
+    },
+    "blank_card": {
+      "textures": "textures/items/components/blank_card"
+    },
+    "iron_sheet": {
+      "textures": "textures/items/components/iron_sheet"
+    },
+    "medium_iron_sheet": {
+      "textures": "textures/items/components/medium_iron_sheet"
+    },
+    "debit_card_black": {
+      "textures": "textures/items/debit_cards/debit_card_black"
+    },
+    "debit_card_black_silver": {
+      "textures": "textures/items/debit_cards/debit_card_black_silver"
+    },
+    "debit_card_brown": {
+      "textures": "textures/items/debit_cards/debit_card_brown"
+    },
+    "debit_card_green": {
+      "textures": "textures/items/debit_cards/debit_card_green"
+    },
+    "debit_card_grey": {
+      "textures": "textures/items/debit_cards/debit_card_grey"
+    },
+    "debit_card_light_gray": {
+      "textures": "textures/items/debit_cards/debit_card_light_gray"
+    },
+    "debit_card_lime": {
+      "textures": "textures/items/debit_cards/debit_card_lime"
+    },
+    "debit_card_orange": {
+      "textures": "textures/items/debit_cards/debit_card_orange"
+    },
+    "debit_card_red": {
+      "textures": "textures/items/debit_cards/debit_card_red"
+    },
+    "debit_card_white": {
+      "textures": "textures/items/debit_cards/debit_card_white"
+    },
+    "debit_card_yellow": {
+      "textures": "textures/items/debit_cards/debit_card_yellow"
+    },
+    "credit_card_dirt": {
+      "textures": "textures/items/credit_cards/credit_card_dirt"
+    },
+    "credit_card_gold": {
+      "textures": "textures/items/credit_cards/credit_card_gold"
+    },
+    "credit_card_diamond": {
+      "textures": "textures/items/credit_cards/credit_card_diamond"
+    },
+    "credit_card_netherite": {
+      "textures": "textures/items/credit_cards/credit_card_netherite"
+    },
+    "credit_card_amex_platinum": {
+      "textures": "textures/items/credit_cards/credit_card_amex_platinum"
+    },
+    "coin_two": {
+      "textures": "textures/items/coins/coin_two"
+    },
+    "coin_fifty": {
+      "textures": "textures/items/coins/coin_fifty"
+    },
+    "coin_hundred": {
+      "textures": "textures/items/coins/coin_hundred"
+    },
+    "cash_one": {
+      "textures": "textures/items/cash/cash_one"
+    },
+    "cash_two": {
+      "textures": "textures/items/cash/cash_two"
+    },
+    "cash_five": {
+      "textures": "textures/items/cash/cash_five"
+    },
+    "cash_fifty": {
+      "textures": "textures/items/cash/cash_fifty"
+    },
+    "cash_two_hundred": {
+      "textures": "textures/items/cash/cash_two_hundred"
+    },
+    "cash_thousand": {
+      "textures": "textures/items/cash/cash_thousand"
+    },
+    "copper_stick": {
+      "textures": "textures/items/components/copper_stick"
+    },
+    "ex_card_ace_of_spades": {
+      "textures": "textures/items/ex/cards/card_ace_of_spades"
+    },
+    "ex_card_two_of_spades": {
+      "textures": "textures/items/ex/cards/card_two_of_spades"
+    },
+    "ex_card_three_of_spades": {
+      "textures": "textures/items/ex/cards/card_three_of_spades"
+    },
+    "ex_card_four_of_spades": {
+      "textures": "textures/items/ex/cards/card_four_of_spades"
+    },
+    "ex_card_five_of_spades": {
+      "textures": "textures/items/ex/cards/card_five_of_spades"
+    },
+    "ex_card_six_of_spades": {
+      "textures": "textures/items/ex/cards/card_six_of_spades"
+    },
+    "ex_card_seven_of_spades": {
+      "textures": "textures/items/ex/cards/card_seven_of_spades"
+    },
+    "ex_card_eight_of_spades": {
+      "textures": "textures/items/ex/cards/card_eight_of_spades"
+    },
+    "ex_card_nine_of_spades": {
+      "textures": "textures/items/ex/cards/card_nine_of_spades"
+    },
+    "ex_card_ten_of_spades": {
+      "textures": "textures/items/ex/cards/card_ten_of_spades"
+    },
+    "ex_card_jack_of_spades": {
+      "textures": "textures/items/ex/cards/card_jack_of_spades"
+    },
+    "ex_card_queen_of_spades": {
+      "textures": "textures/items/ex/cards/card_queen_of_spades"
+    },
+    "ex_card_king_of_spades": {
+      "textures": "textures/items/ex/cards/card_king_of_spades"
+    },
+    "ex_card_ace_of_hearts": {
+      "textures": "textures/items/ex/cards/card_ace_of_hearts"
+    },
+    "ex_card_two_of_hearts": {
+      "textures": "textures/items/ex/cards/card_two_of_hearts"
+    },
+    "ex_card_three_of_hearts": {
+      "textures": "textures/items/ex/cards/card_three_of_hearts"
+    },
+    "ex_card_four_of_hearts": {
+      "textures": "textures/items/ex/cards/card_four_of_hearts"
+    },
+    "ex_card_five_of_hearts": {
+      "textures": "textures/items/ex/cards/card_five_of_hearts"
+    },
+    "ex_card_six_of_hearts": {
+      "textures": "textures/items/ex/cards/card_six_of_hearts"
+    },
+    "ex_card_seven_of_hearts": {
+      "textures": "textures/items/ex/cards/card_seven_of_hearts"
+    },
+    "ex_card_eight_of_hearts": {
+      "textures": "textures/items/ex/cards/card_eight_of_hearts"
+    },
+    "ex_card_nine_of_hearts": {
+      "textures": "textures/items/ex/cards/card_nine_of_hearts"
+    },
+    "ex_card_ten_of_hearts": {
+      "textures": "textures/items/ex/cards/card_ten_of_hearts"
+    },
+    "ex_card_jack_of_hearts": {
+      "textures": "textures/items/ex/cards/card_jack_of_hearts"
+    },
+    "ex_card_queen_of_hearts": {
+      "textures": "textures/items/ex/cards/card_queen_of_hearts"
+    },
+    "ex_card_king_of_hearts": {
+      "textures": "textures/items/ex/cards/card_king_of_hearts"
+    },
+    "ex_card_ace_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_ace_of_diamonds"
+    },
+    "ex_card_two_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_two_of_diamonds"
+    },
+    "ex_card_three_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_three_of_diamonds"
+    },
+    "ex_card_four_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_four_of_diamonds"
+    },
+    "ex_card_five_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_five_of_diamonds"
+    },
+    "ex_card_six_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_six_of_diamonds"
+    },
+    "ex_card_seven_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_seven_of_diamonds"
+    },
+    "ex_card_eight_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_eight_of_diamonds"
+    },
+    "ex_card_nine_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_nine_of_diamonds"
+    },
+    "ex_card_ten_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_ten_of_diamonds"
+    },
+    "ex_card_jack_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_jack_of_diamonds"
+    },
+    "ex_card_queen_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_queen_of_diamonds"
+    },
+    "ex_card_king_of_diamonds": {
+      "textures": "textures/items/ex/cards/card_king_of_diamonds"
+    },
+    "ex_card_ace_of_clubs": {
+      "textures": "textures/items/ex/cards/card_ace_of_clubs"
+    },
+    "ex_card_two_of_clubs": {
+      "textures": "textures/items/ex/cards/card_two_of_clubs"
+    },
+    "ex_card_three_of_clubs": {
+      "textures": "textures/items/ex/cards/card_three_of_clubs"
+    },
+    "ex_card_four_of_clubs": {
+      "textures": "textures/items/ex/cards/card_four_of_clubs"
+    },
+    "ex_card_five_of_clubs": {
+      "textures": "textures/items/ex/cards/card_five_of_clubs"
+    },
+    "ex_card_six_of_clubs": {
+      "textures": "textures/items/ex/cards/card_six_of_clubs"
+    },
+    "ex_card_seven_of_clubs": {
+      "textures": "textures/items/ex/cards/card_seven_of_clubs"
+    },
+    "ex_card_eight_of_clubs": {
+      "textures": "textures/items/ex/cards/card_eight_of_clubs"
+    },
+    "ex_card_nine_of_clubs": {
+      "textures": "textures/items/ex/cards/card_nine_of_clubs"
+    },
+    "ex_card_ten_of_clubs": {
+      "textures": "textures/items/ex/cards/card_ten_of_clubs"
+    },
+    "ex_card_jack_of_clubs": {
+      "textures": "textures/items/ex/cards/card_jack_of_clubs"
+    },
+    "ex_card_queen_of_clubs": {
+      "textures": "textures/items/ex/cards/card_queen_of_clubs"
+    },
+    "ex_card_king_of_clubs": {
+      "textures": "textures/items/ex/cards/card_king_of_clubs"
+    },
+    "ex_card_joker_red": {
+      "textures": "textures/items/ex/cards/card_joker_red"
+    },
+    "ex_card_joker_black": {
+      "textures": "textures/items/ex/cards/card_joker_black"
+    },
+    "ex_card_face_down": {
+      "textures": "textures/items/ex/cards/card_face_down"
+    },
+    "ex_ex_tool": {
+      "textures": "textures/items/ex/ex_tool"
+    }
+  }
+}

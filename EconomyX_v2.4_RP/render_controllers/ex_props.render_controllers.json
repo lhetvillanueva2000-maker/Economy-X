@@ -1,0 +1,77 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.ex_card_prop": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.c0",
+            "Texture.c1",
+            "Texture.c2",
+            "Texture.c3",
+            "Texture.c4",
+            "Texture.c5",
+            "Texture.c6",
+            "Texture.c7",
+            "Texture.c8",
+            "Texture.c9",
+            "Texture.c10",
+            "Texture.c11",
+            "Texture.c12",
+            "Texture.c13",
+            "Texture.c14",
+            "Texture.c15",
+            "Texture.c16",
+            "Texture.c17",
+            "Texture.c18",
+            "Texture.c19",
+            "Texture.c20",
+            "Texture.c21",
+            "Texture.c22",
+            "Texture.c23",
+            "Texture.c24",
+            "Texture.c25",
+            "Texture.c26",
+            "Texture.c27",
+            "Texture.c28",
+            "Texture.c29",
+            "Texture.c30",
+            "Texture.c31",
+            "Texture.c32",
+            "Texture.c33",
+            "Texture.c34",
+            "Texture.c35",
+            "Texture.c36",
+            "Texture.c37",
+            "Texture.c38",
+            "Texture.c39",
+            "Texture.c40",
+            "Texture.c41",
+            "Texture.c42",
+            "Texture.c43",
+            "Texture.c44",
+            "Texture.c45",
+            "Texture.c46",
+            "Texture.c47",
+            "Texture.c48",
+            "Texture.c49",
+            "Texture.c50",
+            "Texture.c51",
+            "Texture.c52",
+            "Texture.c53",
+            "Texture.c54"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.property('ex:variant')]"
+      ]
+    }
+  }
+}

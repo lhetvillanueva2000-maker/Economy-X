@@ -1,0 +1,134 @@
+## EconomyX (EX) — English (US) Localization
+
+## Creative inventory groups
+ex:itemGroup.name.debit_cards=EconomyX Debit Cards
+ex:itemGroup.name.credit_cards=EconomyX Credit Cards
+ex:itemGroup.name.coins=EconomyX Coins
+ex:itemGroup.name.cash=EconomyX Cash & Bills
+ex:itemGroup.name.components=EconomyX Components
+ex:itemGroup.name.machines=EconomyX Machines
+
+## Debit Cards — Standard Tier
+item.ex:debit_card_pink=Pink Debit Card
+item.ex:debit_card_magenta=Magenta Debit Card
+item.ex:debit_card_purple=Purple Debit Card
+item.ex:debit_card_blue=Blue Debit Card
+item.ex:debit_card_light_blue=Light Blue Debit Card
+item.ex:debit_card_cyan=Cyan Debit Card
+item.ex:debit_card_black=Black Debit Card
+item.ex:debit_card_brown=Brown Debit Card
+item.ex:debit_card_green=Green Debit Card
+item.ex:debit_card_grey=Grey Debit Card
+item.ex:debit_card_light_gray=Light Gray Debit Card
+item.ex:debit_card_lime=Lime Debit Card
+item.ex:debit_card_orange=Orange Debit Card
+item.ex:debit_card_red=Red Debit Card
+item.ex:debit_card_white=White Debit Card
+item.ex:debit_card_yellow=Yellow Debit Card
+
+## Debit Cards — Premium & Legendary Tiers
+item.ex:debit_card_black_silver=Black & Silver Debit Card
+item.ex:debit_card_black_gold=Black & Gold Debit Card
+
+## Credit Cards
+item.ex:credit_card_dirt=Dirt Credit Card
+item.ex:credit_card_gold=Gold Credit Card
+item.ex:credit_card_diamond=Diamond Credit Card
+item.ex:credit_card_netherite=Netherite Credit Card
+item.ex:credit_card_amex_platinum=Amex Platinum Credit Card
+
+## Currency — Coins
+item.ex:coin_bronze=Bronze Coin
+item.ex:coin_two=Two Cent Coin
+item.ex:coin_silver=Silver Coin
+item.ex:coin_gold=Gold Coin
+item.ex:coin_fifty=Fifty Cent Coin
+item.ex:coin_hundred=Hundred Cent Coin
+
+## Currency — Cash
+item.ex:cash_one=1 UD Bill
+item.ex:cash_two=2 UD Bill
+item.ex:cash_five=5 UD Bill
+item.ex:cash_single=20 UD Bill
+item.ex:cash_fifty=50 UD Bill
+item.ex:cash_stack=100 UD Bill
+item.ex:cash_two_hundred=200 UD Bill
+item.ex:cash_bundle=500 UD Bill
+item.ex:cash_thousand=1000 UD Bill
+
+## Crafting Components
+item.ex:iron_sheet=Iron Sheet
+item.ex:medium_iron_sheet=Medium Sized Metal Sheet
+item.ex:blank_card=Plain Card
+
+## Blocks
+tile.ex:machine_base.name=EconomyX Machine Base
+tile.ex:atm_head.name=ATM Head
+tile.ex:utm_head.name=UTM Head
+tile.ex:payment_head.name=Debt Payment Block
+tile.ex:lottery_block.name=Lottery Block
+tile.ex:blackjack_block.name=Blackjack Block
+
+## Playing Cards
+ex:itemGroup.name.playing_cards=EconomyX Playing Cards
+
+item.ex:copper_stick=Copper Stick
+ex:itemGroup.name.tools=EconomyX Tools
+
+## Playing cards & EX Tool
+item.ex:card_ace_of_spades=Ace of Spades
+item.ex:card_two_of_spades=Two of Spades
+item.ex:card_three_of_spades=Three of Spades
+item.ex:card_four_of_spades=Four of Spades
+item.ex:card_five_of_spades=Five of Spades
+item.ex:card_six_of_spades=Six of Spades
+item.ex:card_seven_of_spades=Seven of Spades
+item.ex:card_eight_of_spades=Eight of Spades
+item.ex:card_nine_of_spades=Nine of Spades
+item.ex:card_ten_of_spades=Ten of Spades
+item.ex:card_jack_of_spades=Jack of Spades
+item.ex:card_queen_of_spades=Queen of Spades
+item.ex:card_king_of_spades=King of Spades
+item.ex:card_ace_of_hearts=Ace of Hearts
+item.ex:card_two_of_hearts=Two of Hearts
+item.ex:card_three_of_hearts=Three of Hearts
+item.ex:card_four_of_hearts=Four of Hearts
+item.ex:card_five_of_hearts=Five of Hearts
+item.ex:card_six_of_hearts=Six of Hearts
+item.ex:card_seven_of_hearts=Seven of Hearts
+item.ex:card_eight_of_hearts=Eight of Hearts
+item.ex:card_nine_of_hearts=Nine of Hearts
+item.ex:card_ten_of_hearts=Ten of Hearts
+item.ex:card_jack_of_hearts=Jack of Hearts
+item.ex:card_queen_of_hearts=Queen of Hearts
+item.ex:card_king_of_hearts=King of Hearts
+item.ex:card_ace_of_diamonds=Ace of Diamonds
+item.ex:card_two_of_diamonds=Two of Diamonds
+item.ex:card_three_of_diamonds=Three of Diamonds
+item.ex:card_four_of_diamonds=Four of Diamonds
+item.ex:card_five_of_diamonds=Five of Diamonds
+item.ex:card_six_of_diamonds=Six of Diamonds
+item.ex:card_seven_of_diamonds=Seven of Diamonds
+item.ex:card_eight_of_diamonds=Eight of Diamonds
+item.ex:card_nine_of_diamonds=Nine of Diamonds
+item.ex:card_ten_of_diamonds=Ten of Diamonds
+item.ex:card_jack_of_diamonds=Jack of Diamonds
+item.ex:card_queen_of_diamonds=Queen of Diamonds
+item.ex:card_king_of_diamonds=King of Diamonds
+item.ex:card_ace_of_clubs=Ace of Clubs
+item.ex:card_two_of_clubs=Two of Clubs
+item.ex:card_three_of_clubs=Three of Clubs
+item.ex:card_four_of_clubs=Four of Clubs
+item.ex:card_five_of_clubs=Five of Clubs
+item.ex:card_six_of_clubs=Six of Clubs
+item.ex:card_seven_of_clubs=Seven of Clubs
+item.ex:card_eight_of_clubs=Eight of Clubs
+item.ex:card_nine_of_clubs=Nine of Clubs
+item.ex:card_ten_of_clubs=Ten of Clubs
+item.ex:card_jack_of_clubs=Jack of Clubs
+item.ex:card_queen_of_clubs=Queen of Clubs
+item.ex:card_king_of_clubs=King of Clubs
+item.ex:card_joker_red=Red Joker
+item.ex:card_joker_black=Black Joker
+item.ex:card_face_down=Face-Down Card
+item.ex:ex_tool=EX Tool

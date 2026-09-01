@@ -1,0 +1,82 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ex:card_prop",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "c0": "textures/entity/ex/cards/card_ace_of_spades",
+        "c1": "textures/entity/ex/cards/card_two_of_spades",
+        "c2": "textures/entity/ex/cards/card_three_of_spades",
+        "c3": "textures/entity/ex/cards/card_four_of_spades",
+        "c4": "textures/entity/ex/cards/card_five_of_spades",
+        "c5": "textures/entity/ex/cards/card_six_of_spades",
+        "c6": "textures/entity/ex/cards/card_seven_of_spades",
+        "c7": "textures/entity/ex/cards/card_eight_of_spades",
+        "c8": "textures/entity/ex/cards/card_nine_of_spades",
+        "c9": "textures/entity/ex/cards/card_ten_of_spades",
+        "c10": "textures/entity/ex/cards/card_jack_of_spades",
+        "c11": "textures/entity/ex/cards/card_queen_of_spades",
+        "c12": "textures/entity/ex/cards/card_king_of_spades",
+        "c13": "textures/entity/ex/cards/card_ace_of_hearts",
+        "c14": "textures/entity/ex/cards/card_two_of_hearts",
+        "c15": "textures/entity/ex/cards/card_three_of_hearts",
+        "c16": "textures/entity/ex/cards/card_four_of_hearts",
+        "c17": "textures/entity/ex/cards/card_five_of_hearts",
+        "c18": "textures/entity/ex/cards/card_six_of_hearts",
+        "c19": "textures/entity/ex/cards/card_seven_of_hearts",
+        "c20": "textures/entity/ex/cards/card_eight_of_hearts",
+        "c21": "textures/entity/ex/cards/card_nine_of_hearts",
+        "c22": "textures/entity/ex/cards/card_ten_of_hearts",
+        "c23": "textures/entity/ex/cards/card_jack_of_hearts",
+        "c24": "textures/entity/ex/cards/card_queen_of_hearts",
+        "c25": "textures/entity/ex/cards/card_king_of_hearts",
+        "c26": "textures/entity/ex/cards/card_ace_of_diamonds",
+        "c27": "textures/entity/ex/cards/card_two_of_diamonds",
+        "c28": "textures/entity/ex/cards/card_three_of_diamonds",
+        "c29": "textures/entity/ex/cards/card_four_of_diamonds",
+        "c30": "textures/entity/ex/cards/card_five_of_diamonds",
+        "c31": "textures/entity/ex/cards/card_six_of_diamonds",
+        "c32": "textures/entity/ex/cards/card_seven_of_diamonds",
+        "c33": "textures/entity/ex/cards/card_eight_of_diamonds",
+        "c34": "textures/entity/ex/cards/card_nine_of_diamonds",
+        "c35": "textures/entity/ex/cards/card_ten_of_diamonds",
+        "c36": "textures/entity/ex/cards/card_jack_of_diamonds",
+        "c37": "textures/entity/ex/cards/card_queen_of_diamonds",
+        "c38": "textures/entity/ex/cards/card_king_of_diamonds",
+        "c39": "textures/entity/ex/cards/card_ace_of_clubs",
+        "c40": "textures/entity/ex/cards/card_two_of_clubs",
+        "c41": "textures/entity/ex/cards/card_three_of_clubs",
+        "c42": "textures/entity/ex/cards/card_four_of_clubs",
+        "c43": "textures/entity/ex/cards/card_five_of_clubs",
+        "c44": "textures/entity/ex/cards/card_six_of_clubs",
+        "c45": "textures/entity/ex/cards/card_seven_of_clubs",
+        "c46": "textures/entity/ex/cards/card_eight_of_clubs",
+        "c47": "textures/entity/ex/cards/card_nine_of_clubs",
+        "c48": "textures/entity/ex/cards/card_ten_of_clubs",
+        "c49": "textures/entity/ex/cards/card_jack_of_clubs",
+        "c50": "textures/entity/ex/cards/card_queen_of_clubs",
+        "c51": "textures/entity/ex/cards/card_king_of_clubs",
+        "c52": "textures/entity/ex/cards/card_joker_red",
+        "c53": "textures/entity/ex/cards/card_joker_black",
+        "c54": "textures/entity/ex/cards/card_face_down"
+      },
+      "geometry": {
+        "default": "geometry.ex_card"
+      },
+      "animations": {
+        "bob": "animation.ex_card.bob"
+      },
+      "scripts": {
+        "animate": [
+          "bob"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.ex_card_prop"
+      ]
+    }
+  }
+}

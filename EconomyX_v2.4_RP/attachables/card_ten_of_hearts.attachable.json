@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "ex:card_ten_of_hearts",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/ex/cards/card_ten_of_hearts"
+      },
+      "geometry": {
+        "default": "geometry.ex_card"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.main_hand = c.item_slot == 'main_hand';",
+          "v.off_hand  = c.item_slot == 'off_hand';"
+        ],
+        "animate": [
+          {
+            "third_person": "!c.is_first_person"
+          },
+          {
+            "first_person": "c.is_first_person"
+          }
+        ]
+      },
+      "animations": {
+        "third_person": "animation.ex_card.third_person",
+        "first_person": "animation.ex_card.first_person"
+      },
+      "render_controllers": [
+        "controller.render.ex_item"
+      ]
+    }
+  }
+}
