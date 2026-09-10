@@ -10,7 +10,32 @@ the `.mcaddon` / `.zip` are named to match.
 
 ---
 
-## 2.7 — first public release
+## 2.8
+
+### Fixed
+- **Held models sat on the ground.** The hand binding added in 2.7 attached them
+  to the player correctly, but Bedrock applies a **-1.5 metre (-24 unit) offset**
+  to a bound attachable, and nothing cancelled it out — so a model authored
+  around the origin rendered down at the player's feet. Every held pose now adds
+  +24 to undo it.
+- **Models hung off the hand rather than sitting on it.** Each pose now also
+  subtracts the model's own centre, so the MIDDLE of a card, phone or tool lands
+  on the hand instead of its base:
+  `position Y = 24 - (centre x scale)`.
+
+### Changed
+- Cards and phones are held at a **three-quarter angle** (Y rotation 35) so an
+  edge shows and they read as solid objects rather than flat planes. The EX Tool
+  is left square-on, since it is not flat to begin with.
+
+### Note
+- The dropped-item `bob` animations were deliberately left alone. Those drive
+  prop *entities* on the ground, which are not hand-bound and so never had the
+  -24 offset to cancel.
+
+---
+
+## 2.7
 
 Everything in the mod, in one place. Full detail lives in the README.
 

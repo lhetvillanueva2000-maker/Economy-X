@@ -1,0 +1,85 @@
+{
+  "__comment__": [
+    "EconomyX \u2014 held poses.",
+    "",
+    "WHY POSITION Y IS LARGE AND NOT 0",
+    "The geometry's root bone is bound to the hand with",
+    "    \"binding\": \"q.item_slot_to_bone_name(context.item_slot)\"",
+    "which is what attaches it to the player at all. Bedrock then applies a",
+    "-1.5 metre (-24 unit) offset to a bound attachable, so a model authored",
+    "around the origin lands down at the player's feet. The +24 cancels it out.",
+    "",
+    "The remainder centres the model. The geometry runs y=0..+9.6, so",
+    "its centre sits at y=+4.80; that centre, scaled, is subtracted so the",
+    "MIDDLE of the model lands on the hand instead of its base.",
+    "",
+    "    24  -  (centre x scale)  =  position Y",
+    "    third: 24 - (4.80 x 0.9) = 19.68   first: 24 - (4.80 x 1.0) = 19.20",
+    "",
+    "TUNING",
+    "  sitting at the feet again ... position[1] lost its +24",
+    "  floating above the hand ..... lower position[1]",
+    "  hanging below the hand ...... raise position[1]",
+    "  size wrong .................. change scale, then redo the sum above",
+    "",
+    "The Y rotation of 35 gives a three-quarter view so an edge shows and the",
+    "card reads as an object rather than a flat plane. Negate it to mirror."
+  ],
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ex_card.third_person": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "position": [
+            0,
+            19.68,
+            0
+          ],
+          "rotation": [
+            -20,
+            35,
+            0
+          ],
+          "scale": 0.9
+        }
+      }
+    },
+    "animation.ex_card.first_person": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "position": [
+            0,
+            19.2,
+            0
+          ],
+          "rotation": [
+            -14,
+            35,
+            0
+          ],
+          "scale": 1.0
+        }
+      }
+    },
+    "animation.ex_card.bob": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "rotation": [
+            0,
+            "q.life_time * 42",
+            0
+          ],
+          "position": [
+            0,
+            "2 + math.sin(q.life_time * 110) * 0.9",
+            0
+          ],
+          "scale": 0.55
+        }
+      }
+    }
+  }
+}
