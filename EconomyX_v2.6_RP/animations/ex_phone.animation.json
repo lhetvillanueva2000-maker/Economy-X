@@ -3,15 +3,34 @@
     "EconomyX — phone hold poses. ONE file drives all 26 phones, because every",
     "phone geometry uses a single bone named 'phone'.",
     "",
-    "Each geometry is already raised so its origin sits at the LOWER THIRD of the",
-    "body — that is where a hand actually grips a phone. So position [0,0,0] puts",
-    "the grip point in the palm, with roughly a third of the phone below the hand",
-    "and two thirds standing above it.",
+    "WHICH WAY DOES THE PHONE FACE",
+    "Read off the geometry, not guessed: in every one of the 9 phone models the",
+    "camera-bump cubes sit at negative Z (they protrude past the body's -0.5 to",
+    "-1.3). So:",
+    "    -Z  (north face) = the BACK of the phone, with the cameras",
+    "    +Z  (south face) = the SCREEN",
+    "In Bedrock item-bone space -Z points the way the holder is facing. At yaw 0",
+    "the cameras therefore point away from the holder — out at everyone else —",
+    "and the screen points back at the holder. That is exactly the behaviour we",
+    "want in both views, which is why both poses below use a Y rotation of 0.",
+    "Rotating Y by 180 would swap it: screen out, cameras at your own face.",
+    "",
+    "WHY THESE POSITIONS",
+    "The pack's 55 playing cards render correctly at first-person position",
+    "[-1.5, 5.5, 1.5] and third-person [0, 3.0, 0], so those are known-good hand",
+    "coordinates. The card's geometry starts at y=0, but a phone's geometry runs",
+    "from y=-5.28 up to y=+11.22 — the origin is at the lower third, where a hand",
+    "actually grips. Roughly a third of the phone therefore hangs BELOW the bone",
+    "origin, and the first-person Y is lifted to 6.5 so that overhang does not",
+    "drop out of the visible frame. The previous values put the origin at y=1.0,",
+    "which pushed the whole handset below the first-person view — the phone was",
+    "being drawn, just not anywhere you could see it.",
     "",
     "TUNING — grip poses always want a nudge or two once you see them in game.",
     "Edit ONLY this file; nothing else references these numbers.",
     "  phone clips into the arm ............ raise position[1], or lower scale",
-    "  screen faces away in first person ... make rotation[0] more negative (toward -90)",
+    "  phone hangs below the screen edge ... raise position[1]",
+    "  you see the cameras, not the screen . set rotation[1] to 180",
     "  phone lies flat instead of upright .. move rotation[0] toward 0",
     "  sits too far left/right of the hand . adjust position[0]"
   ],
@@ -21,8 +40,8 @@
       "loop": true,
       "bones": {
         "phone": {
-          "position": [2.0, 1.0, 1.5],
-          "rotation": [-62, 18, 6],
+          "position": [-1.0, 6.5, 1.5],
+          "rotation": [-35, 0, 0],
           "scale": 0.55
         }
       }
@@ -31,8 +50,8 @@
       "loop": true,
       "bones": {
         "phone": {
-          "position": [0.0, 0.5, 0.5],
-          "rotation": [-18, 0, 0],
+          "position": [0.0, 3.0, 0.0],
+          "rotation": [-12, 0, 0],
           "scale": 0.45
         }
       }

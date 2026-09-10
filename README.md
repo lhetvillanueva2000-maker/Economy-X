@@ -225,8 +225,19 @@ so the phone you want is worth shopping around for.
 The dealer is damage-immune and never despawns — a raid can't cost a village its
 only phone shop. Mobs can't pick a dropped phone up either.
 
-> Phones are **look-only for now**: a phone is a held item with a model, and
-> nothing else. No screen, no apps, no functionality behind it yet.
+### Holding one
+
+The screen faces **you**; the cameras face **everyone else**. That falls out of
+the models themselves — in all nine handsets the camera bumps sit on the −Z side
+of the body, so at a yaw of zero the back points the way you're facing and the
+screen points back at you, in first and third person alike.
+
+Hold a phone and its **black screen appears in the centre of your display**. The
+screen is off for now — no apps behind it yet — but the overlay is live and
+tracks the phone in and out of your hand.
+
+> Phones are **look-only for now**: a held item with a model, a screen overlay
+> and a price. No apps, no functionality behind the glass yet.
 
 ---
 
@@ -401,12 +412,19 @@ Stated plainly rather than buried:
 - **Interest is punishing by design.** See the warning in the credit section.
 - **Custom Lottery and Blackjack panels** are not built. Both use the standard
   form layout.
-- **Phones do nothing yet.** They are a held item with a 3D model and a price.
-  No screen, no apps, no behaviour behind them.
-- **Phone grip poses are unverified in-game.** They were authored against these
-  exact geometries and every phone shares one bone, so all 26 are tuned by
-  editing `RP/animations/ex_phone.animation.json` alone — the file carries a
+- **Phones do nothing behind the glass yet.** The model and the screen overlay
+  are real; there are no apps.
+- **Phone grip poses want an in-game check.** The positions are derived from the
+  playing cards' known-good hand coordinates, corrected for the fact that a
+  phone's origin sits at its lower third so part of it hangs below the grip. All
+  26 tune from `RP/animations/ex_phone.animation.json` alone — the file carries a
   symptom-to-fix table in its header.
+- **The screen overlay is driven by an invisible title.** No JSON-UI binding
+  reports what a player is holding, so `scripts/phones.js` pushes a marker string
+  that renders as nothing and `ui/hud_screen.json` watches for it. It is declared
+  invisible by default, so if the binding ever stops resolving the overlay simply
+  never appears rather than covering the screen. That file documents the two
+  things to try if it doesn't show up.
 - **Dealer placement needs a real village.** Detection keys off a cluster of at
   least two vanilla villagers nearby, so a village whose villagers have all been
   killed will not get a dealer until they repopulate.

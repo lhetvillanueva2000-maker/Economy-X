@@ -48,6 +48,23 @@ const PROP_STOCK = "ex:stock";
 const PROP_RESTOCK_DAY = "ex:restock_day";
 const BOOK_GRANTED_KEY = "ex:book_granted";
 
+/* ---- On-screen phone display ----
+ * No JSON-UI binding reports what a player is holding, so the screen overlay in
+ * RP/ui/hud_screen.json is driven by an invisible title instead: four colour
+ * codes and no glyphs, which renders as nothing but is still readable by the
+ * #hud_title_text_string binding.
+ *
+ * MUST match the string in RP/ui/hud_screen.json exactly. It deliberately does
+ * not contain "§8§r" (UI_TAG, the marker ui/server_form.json watches for), so
+ * the phone overlay and the form skin can never trigger one another.
+ */
+const HUD_TAG = "§9§r§a§r";
+const HUD_RATE = 20; // ticks between refreshes
+const HUD_STAY = 45; // title lifetime, comfortably longer than HUD_RATE
+const PHONE_ID_SET = new Set(PHONE_IDS);
+/** playerId -> is the overlay currently up, so we only clear on the transition. */
+const hudShown = new Map();
+
 /** Everything main.js lends us. Populated by initPhones(). */
 let api = null;
 
@@ -648,6 +665,60 @@ function grantBookOnce(player) {
 }
 
 /* ------------------------------------------------------------
+ *  The on-screen phone display
+ *
+ *  While a phone is in the main hand we keep an invisible title alive; the
+ *  JSON-UI panel in RP/ui/hud_screen.json watches for it and paints the
+ *  handset's black screen in the centre of the display. The moment the phone
+ *  leaves the hand the title is cleared and the panel switches itself off.
+ *
+ *  The title is re-sent faster than it expires so the overlay cannot flicker
+ *  between refreshes, and it is only re-sent on a state change or a tick
+ *  boundary, never every tick.
+ * ---------------------------------------------------------- */
+
+function holdingPhone(player) {
+  try {
+    const inv = player.getComponent("minecraft:inventory")?.container;
+    if (!inv) return false;
+    const held = inv.getItem(player.selectedSlotIndex);
+    return !!held && PHONE_ID_SET.has(held.typeId);
+  } catch {
+    return false;
+  }
+}
+
+function updatePhoneHud(player) {
+  const on = holdingPhone(player);
+  const was = hudShown.get(player.id) === true;
+
+  if (on) {
+    hudShown.set(player.id, true);
+    try {
+      player.onScreenDisplay.setTitle(HUD_TAG, {
+        fadeInDuration: 0,
+        stayDuration: HUD_STAY,
+        fadeOutDuration: 0
+      });
+    } catch {
+      /* screen display not ready this tick — the next pass picks it up */
+    }
+    return;
+  }
+
+  if (was) {
+    hudShown.set(player.id, false);
+    try {
+      // Only ever clear a title WE put up. If the marker is gone already,
+      // something else owns the title and we must not stamp on it.
+      player.onScreenDisplay.clearTitle();
+    } catch {
+      /* no-op */
+    }
+  }
+}
+
+/* ------------------------------------------------------------
  *  Wiring
  * ---------------------------------------------------------- */
 
@@ -704,6 +775,29 @@ export function initPhones(injected) {
       } catch (err) {
         console.warn(`[EconomyX] book use: ${err}`);
       }
+    });
+  });
+
+  /* ---- On-screen phone display ---- */
+  safeSubscribe("phoneHudTicker", () => {
+    system.runInterval(() => {
+      try {
+        for (const player of world.getAllPlayers()) {
+          try {
+            updatePhoneHud(player);
+          } catch {
+            /* skip this player, keep the loop alive */
+          }
+        }
+      } catch (err) {
+        console.warn(`[EconomyX] phone hud: ${err}`);
+      }
+    }, HUD_RATE);
+  });
+
+  safeSubscribe("phoneHudCleanup", () => {
+    world.afterEvents.playerLeave.subscribe((event) => {
+      hudShown.delete(event.playerId);
     });
   });
 

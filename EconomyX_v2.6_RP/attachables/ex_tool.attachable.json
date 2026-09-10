@@ -33,7 +33,7 @@
         "first_person": "animation.ex_tool.first_person"
       },
       "render_controllers": [
-        "controller.render.item_default"
+        "controller.render.ex_item"
       ]
     }
   }

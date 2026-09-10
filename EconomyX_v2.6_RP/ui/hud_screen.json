@@ -1,0 +1,52 @@
+{
+  "namespace": "hud",
+
+  "//": "EconomyX phone screen overlay. Paints the handset's black screen in the centre of the display while a phone is held, and touches nothing else on the HUD.",
+
+  "//_targeting": "There is no JSON-UI binding that reports what a player is holding, so scripts/phones.js pushes an invisible title — the string EX_PHONE_HUD_TAG, which is four colour codes and no glyphs, so it renders as nothing — for as long as a phone is in the main hand, and clears it the moment one is not. #hud_title_text_string is a real vanilla global binding (see the 'title' label in vanilla hud_screen.json), so we read that and switch the panel on when the marker is present. The marker deliberately does NOT contain '§8§r', the form marker used by ui/server_form.json, so the two skins can never trigger each other.",
+
+  "//_safety": "ex_phone_screen is declared visible:false and is only ever switched on by the binding below. If that binding stops resolving on some future Bedrock version, the panel stays off and the HUD is simply stock — this can fail quiet, but it cannot cover the screen and refuse to go away. Nothing here redefines a vanilla control; the panel is added to root_panel with the 'modifications' operation, so the hotbar, chat, health and everything else are untouched.",
+
+  "ex_phone_screen": {
+    "type": "image",
+    "texture": "textures/ui/ex_phone_screen",
+    "size": [ 112, 224 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 12,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#ex_phone_tag",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_tag - '§9§r§a§r') = #ex_phone_tag))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "ex_phone_layer": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 11,
+    "controls": [
+      { "ex_phone_screen@hud.ex_phone_screen": {} }
+    ]
+  },
+
+  "//_if_the_overlay_never_appears": "Two things to try, in this order. (1) The key below is 'root_panel/' with a trailing slash — the explicit 'modify the existing control' form, and the same form ui/server_form.json uses successfully. Some Bedrock versions want it written as plain 'root_panel' instead; drop the slash and retest. (2) Check the marker still matches: HUD_TAG in scripts/phones.js and the string in the binding above must be byte-identical.",
+
+  "root_panel/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [ { "ex_phone_layer@hud.ex_phone_layer": {} } ]
+      }
+    ]
+  }
+}
