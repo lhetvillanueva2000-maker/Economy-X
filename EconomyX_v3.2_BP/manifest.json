@@ -1,12 +1,12 @@
 {
   "format_version": 2,
   "header": {
-    "name": "EconomyX v3.1 [BP]",
-    "description": "EconomyX v3.1 - Debit Card & Currency Economy System | by Usersainyy",
+    "name": "EconomyX v3.2 [BP]",
+    "description": "EconomyX v3.2 - Debit Card & Currency Economy System | by Usersainyy",
     "uuid": "b50cd33f-6228-4652-9180-8343d3ddcbcc",
     "version": [
       3,
-      1,
+      2,
       0
     ],
     "min_engine_version": [
@@ -21,7 +21,7 @@
       "uuid": "da279042-766d-4b1c-8f92-e31d6019cece",
       "version": [
         3,
-        1,
+        2,
         0
       ]
     },
@@ -31,7 +31,7 @@
       "uuid": "77518455-0537-4678-b7a1-96a10a73909d",
       "version": [
         3,
-        1,
+        2,
         0
       ],
       "entry": "scripts/main.js"
@@ -50,7 +50,7 @@
       "uuid": "0e9385ca-e689-4eb6-8528-d848dbc49f68",
       "version": [
         3,
-        1,
+        2,
         0
       ]
     }

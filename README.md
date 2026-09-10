@@ -7,18 +7,18 @@ sign into, two gambling blocks that will happily take it all off you, and a
 village phone dealer who will sell you a 4,050 UD handset if you can afford it.
 
 **Author:** Usersainyy
-**Current version:** 3.1
+**Current version:** 3.2
 **Requires:** Minecraft Bedrock **1.26.13 or newer**
 
 ---
 
 ## Installing
 
-Download `EconomyX_v3.1.mcaddon` and open it — Minecraft imports both packs
+Download `EconomyX_v3.2.mcaddon` and open it — Minecraft imports both packs
 for you. Then, in your world settings, enable **both**:
 
-- `EconomyX v3.1 [BP]` under Behavior Packs
-- `EconomyX v3.1 [RP]` under Resource Packs
+- `EconomyX v3.2 [BP]` under Behavior Packs
+- `EconomyX v3.2 [RP]` under Resource Packs
 
 The two packs depend on each other and will refuse to load alone.
 
@@ -62,7 +62,7 @@ If another add-on's menu skin matters more, you have two clean fixes:
 
 1. **Move that add-on's resource pack above EconomyX** in the world's pack list.
    EconomyX loses only a cosmetic layer.
-2. Delete `EconomyX_v3.1_RP/ui/server_form.json`. Nothing else reads it.
+2. Delete `EconomyX_v3.2_RP/ui/server_form.json`. Nothing else reads it.
 
 Either way the banking, phones, dealer and gambling are untouched — this file is
 skin, not machinery.
@@ -382,7 +382,7 @@ recipe simply never registers.
 
 ## Tuning it
 
-Everything worth balancing lives in `EconomyX_v3.1_BP/scripts/config.js`.
+Everything worth balancing lives in `EconomyX_v3.2_BP/scripts/config.js`.
 
 | Setting | Default | What it does |
 |---|---|---|
@@ -429,7 +429,7 @@ Phone numbers live in their own files:
 ## Repository layout
 
 ```
-EconomyX_v3.1_BP/          behaviour pack
+EconomyX_v3.2_BP/          behaviour pack
 ├── blocks/                6 machine blocks
 ├── entities/              card_prop, tool_prop, phone_dealer
 ├── item_catalog/          creative menu groups
@@ -445,7 +445,7 @@ EconomyX_v3.1_BP/          behaviour pack
     ├── props.js           3D dropped-item props
     └── guards.js          keeps cards and phones out of mob hands
 
-EconomyX_v3.1_RP/          resource pack
+EconomyX_v3.2_RP/          resource pack
 ├── animations/            held + dropped animation, phone hold poses
 ├── attachables/           82 3D held models — must stay FLAT
 ├── entity/                client entities for the props and the dealer
@@ -469,7 +469,7 @@ Stated plainly rather than buried:
   layer rather than replacing vanilla's form structure, and both layers default
   to invisible so a binding that stops resolving turns the skin off instead of
   breaking a form. If a screen ever misbehaves, deleting
-  `EconomyX_v3.1_RP/ui/server_form.json` reverts the look and changes nothing
+  `EconomyX_v3.2_RP/ui/server_form.json` reverts the look and changes nothing
   else.
 - **Dropped cards and tools are not item entities** — see the note above about
   hoppers and stack merging.

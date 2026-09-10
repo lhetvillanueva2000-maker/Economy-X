@@ -10,6 +10,31 @@ the `.mcaddon` / `.zip` are named to match.
 
 ---
 
+## 3.2
+
+### Changed
+- **The phone screen is a phone now, not a grey rectangle.** Each of the nine
+  handset fronts fills the form: black glass, the right cutout for that model,
+  and a **physical button rail down the right-hand edge** — volume up and volume
+  down paired near the top, and a noticeably longer power key set lower, the way
+  a real handset is laid out.
+- **The glass is left clean.** No labels or panels are painted onto the screen.
+- **Put Away is gone.** Power is the exit, and keeps its own name — that is what
+  a power button does on a real phone.
+- Phone button text is light on the new dark skin rather than black, which was
+  right for Bedrock's grey buttons but wrong here.
+
+### Honest limitation
+- The rail is **artwork on the handset**. The things you actually press are
+  still Bedrock's form buttons, because the form's button factory stacks its
+  buttons vertically and exposes no per-button index binding to position them
+  individually — see the note in `ui/server_form.json`. The phone therefore
+  *reads* correctly, but a tap lands on the stacked control rather than on the
+  painted key. Making the rail itself tappable is not possible through a
+  scripted form.
+
+---
+
 ## 3.1
 
 ### Fixed

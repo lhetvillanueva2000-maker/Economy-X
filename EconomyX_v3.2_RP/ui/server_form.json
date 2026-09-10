@@ -122,8 +122,8 @@
     "type": "image",
     "texture": "textures/ui/phones/iphone_17_pro_max",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -143,15 +143,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_samsung_galaxy_s26_ultra": {
     "type": "image",
     "texture": "textures/ui/phones/samsung_galaxy_s26_ultra",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -171,15 +171,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_oppo_find_x9_ultra": {
     "type": "image",
     "texture": "textures/ui/phones/oppo_find_x9_ultra",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -199,15 +199,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_vivo_x300_ultra": {
     "type": "image",
     "texture": "textures/ui/phones/vivo_x300_ultra",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -227,15 +227,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_vivo_x500": {
     "type": "image",
     "texture": "textures/ui/phones/vivo_x500",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -255,15 +255,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_honor_magic9_pro_max": {
     "type": "image",
     "texture": "textures/ui/phones/honor_magic9_pro_max",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -283,15 +283,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_huawei_mate_80_pro": {
     "type": "image",
     "texture": "textures/ui/phones/huawei_mate_80_pro",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -311,15 +311,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_nothing_phone": {
     "type": "image",
     "texture": "textures/ui/phones/nothing_phone",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -339,15 +339,15 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_redmagic_11s_pro": {
     "type": "image",
     "texture": "textures/ui/phones/redmagic_11s_pro",
     "size": [
-      124,
-      168
+      112,
+      150
     ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
@@ -367,7 +367,7 @@
     ],
     "offset": [
       0,
-      26
+      20
     ]
   },
   "ex_phone_layer": {
@@ -404,6 +404,41 @@
       },
       {
         "ex_phone_redmagic_11s_pro@server_form.ex_phone_redmagic_11s_pro": {}
+      }
+    ]
+  },
+  "ex_phone_btn_skin": {
+    "type": "image",
+    "texture": "textures/ui/phones/button_dark",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 1,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_btn_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_btn_title - '\u00a7d\u00a7r\u00a70\u00a7r') = #ex_btn_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "dynamic_button/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "ex_phone_btn_skin@server_form.ex_phone_btn_skin": {}
+          }
+        ]
       }
     ]
   }

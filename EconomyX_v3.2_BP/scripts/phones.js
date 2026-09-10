@@ -685,10 +685,16 @@ function heldPhone(player) {
   }
 }
 
+/**
+ * The handset's physical buttons, in the order they sit down the phone's left
+ * rail: volume up, volume down, then power a little lower. Power is the exit —
+ * it keeps its own name rather than being relabelled "close", because on a real
+ * phone that is exactly what the power button does.
+ */
 const PHONE_BUTTONS = [
-  { label: "§0▲  Volume Up", note: "Volume up" },
-  { label: "§0▼  Volume Down", note: "Volume down" },
-  { label: "§0⏻  Power", note: "Power" }
+  { label: "\u00a7f\u25b2  Volume Up", note: "Volume up", exits: false },
+  { label: "\u00a7f\u25bc  Volume Down", note: "Volume down", exits: false },
+  { label: "\u00a7c\u23fb  Power", note: "Power", exits: true }
 ];
 
 async function openPhoneUi(player, phoneId) {
@@ -709,14 +715,13 @@ async function openPhoneUi(player, phoneId) {
       .body("\n\n\n\n\n\n\n\n");
 
     for (const b of PHONE_BUTTONS) form.button(b.label);
-    form.button("§0Put away");
 
     const res = await form.show(player);
     if (res.canceled) return;
-    if (res.selection === PHONE_BUTTONS.length) return; // Put away
 
     const pressed = PHONE_BUTTONS[res.selection];
     if (!pressed) return;
+    if (pressed.exits) return; // Power puts the phone away, as it should
     try {
       player.playSound("random.click");
     } catch {
