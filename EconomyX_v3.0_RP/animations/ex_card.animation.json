@@ -1,0 +1,79 @@
+{
+  "__comment__": [
+    "EconomyX \u2014 held poses.",
+    "",
+    "POSITION IS [0,0,0] AND MUST STAY THAT WAY.",
+    "A bone animation's position is applied in the bone's OWN ROTATED frame, so a",
+    "large Y lift combined with a rotation slides the model sideways instead of",
+    "straight up \u2014 that is what threw the handset off to one side of the arm and",
+    "left the playing card lying on the ground.",
+    "",
+    "The hand height is baked into the GEOMETRY instead, exactly the way Microsoft's",
+    "wrench sample does it: every held .geo.json has its cubes shifted so the model's",
+    "centre sits at y=22 (about hand height) with the bone pivot at [0,22,0].",
+    "Geometry coordinates are never rotated, so that offset is stable. This file only",
+    "rotates and scales, about a pivot that is already on the hand.",
+    "",
+    "If a model needs to sit higher or lower, move the CUBES in its .geo.json.",
+    "Do not reintroduce a position offset here.",
+    "",
+    "The Y rotation of 35 gives a three-quarter view so an edge shows."
+  ],
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ex_card.third_person": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            -18,
+            35,
+            0
+          ],
+          "scale": 0.85
+        }
+      }
+    },
+    "animation.ex_card.first_person": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            -14,
+            35,
+            0
+          ],
+          "scale": 0.95
+        }
+      }
+    },
+    "animation.ex_card.bob": {
+      "loop": true,
+      "bones": {
+        "card": {
+          "rotation": [
+            0,
+            "q.life_time * 42",
+            0
+          ],
+          "position": [
+            0,
+            "-20 + math.sin(q.life_time * 110) * 0.9",
+            0
+          ],
+          "scale": 0.55
+        }
+      }
+    }
+  }
+}

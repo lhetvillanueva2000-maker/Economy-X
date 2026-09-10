@@ -7,18 +7,18 @@ sign into, two gambling blocks that will happily take it all off you, and a
 village phone dealer who will sell you a 4,050 UD handset if you can afford it.
 
 **Author:** Usersainyy
-**Current version:** 2.9
+**Current version:** 3.0
 **Requires:** Minecraft Bedrock **1.26.13 or newer**
 
 ---
 
 ## Installing
 
-Download `EconomyX_v2.9.mcaddon` and open it — Minecraft imports both packs
+Download `EconomyX_v3.0.mcaddon` and open it — Minecraft imports both packs
 for you. Then, in your world settings, enable **both**:
 
-- `EconomyX v2.9 [BP]` under Behavior Packs
-- `EconomyX v2.9 [RP]` under Resource Packs
+- `EconomyX v3.0 [BP]` under Behavior Packs
+- `EconomyX v3.0 [RP]` under Resource Packs
 
 The two packs depend on each other and will refuse to load alone.
 
@@ -62,7 +62,7 @@ If another add-on's menu skin matters more, you have two clean fixes:
 
 1. **Move that add-on's resource pack above EconomyX** in the world's pack list.
    EconomyX loses only a cosmetic layer.
-2. Delete `EconomyX_v2.9_RP/ui/server_form.json`. Nothing else reads it.
+2. Delete `EconomyX_v3.0_RP/ui/server_form.json`. Nothing else reads it.
 
 Either way the banking, phones, dealer and gambling are untouched — this file is
 skin, not machinery.
@@ -287,11 +287,19 @@ are the handset's physical ones:
 
 Putting the phone away closes the screen.
 
+The screen you see is **your handset's own front** — nine of them, picked by
+model: a Dynamic Island for the iPhone, a pill cutout for HONOR and Huawei, a
+punch-hole for Samsung, OPPO, vivo and Nothing, and an unbroken black screen for
+the RedMagic, which has an under-display camera and no cutout at all.
+
+Neither a phone nor the EX Book can break a block, in any game mode — so sneak +
+use never chews a hole in the world.
+
 > Bedrock cannot open a custom clickable JSON-UI screen from a script — the form
 > system is the only UI a script can both open *and* read a press back from. So
-> the phone screen is a form, with the handset's front painted behind it by
-> `ui/server_form.json`. The buttons are real and wired; they simply do nothing
-> yet.
+> the phone screen is a form with the handset front painted behind it. The
+> buttons are Bedrock's, drawn over that front: it reads as a phone, but it is
+> not a pixel-accurate one.
 
 > Phones are **look-only for now**: a held item with a model, a screen and a
 > price. No apps behind the glass yet.
@@ -374,7 +382,7 @@ recipe simply never registers.
 
 ## Tuning it
 
-Everything worth balancing lives in `EconomyX_v2.9_BP/scripts/config.js`.
+Everything worth balancing lives in `EconomyX_v3.0_BP/scripts/config.js`.
 
 | Setting | Default | What it does |
 |---|---|---|
@@ -421,7 +429,7 @@ Phone numbers live in their own files:
 ## Repository layout
 
 ```
-EconomyX_v2.9_BP/          behaviour pack
+EconomyX_v3.0_BP/          behaviour pack
 ├── blocks/                6 machine blocks
 ├── entities/              card_prop, tool_prop, phone_dealer
 ├── item_catalog/          creative menu groups
@@ -437,7 +445,7 @@ EconomyX_v2.9_BP/          behaviour pack
     ├── props.js           3D dropped-item props
     └── guards.js          keeps cards and phones out of mob hands
 
-EconomyX_v2.9_RP/          resource pack
+EconomyX_v3.0_RP/          resource pack
 ├── animations/            held + dropped animation, phone hold poses
 ├── attachables/           82 3D held models — must stay FLAT
 ├── entity/                client entities for the props and the dealer
@@ -461,7 +469,7 @@ Stated plainly rather than buried:
   layer rather than replacing vanilla's form structure, and both layers default
   to invisible so a binding that stops resolving turns the skin off instead of
   breaking a form. If a screen ever misbehaves, deleting
-  `EconomyX_v2.9_RP/ui/server_form.json` reverts the look and changes nothing
+  `EconomyX_v3.0_RP/ui/server_form.json` reverts the look and changes nothing
   else.
 - **Dropped cards and tools are not item entities** — see the note above about
   hoppers and stack merging.

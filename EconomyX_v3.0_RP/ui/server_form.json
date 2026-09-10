@@ -1,0 +1,346 @@
+{
+  "namespace": "server_form",
+  "//": "EconomyX skin. Paints the dark panel and grey border behind EconomyX's own forms and leaves every other form in the game alone.",
+  "//_targeting": "Every EconomyX form title starts with the marker '\u00a78\u00a7r' (UI_TAG in scripts/main.js) \u2014 a colour code followed straight away by a reset, so it renders as nothing but is still readable by the #title_text binding. ex_skin_on is true only for those forms.",
+  "//_safety": "Both layers are declared visible:false and are only switched on by the binding below. If the binding ever fails to resolve on a future Bedrock version, the layers stay off and every form falls back to stock appearance \u2014 the skin can fail quiet, but it cannot paint over a form or swallow its buttons. Nothing here redefines vanilla's title, body, button factory or close button; the layers are inserted behind them with the 'modifications' operation, so the machinery that drives the forms is untouched.",
+  "ex_panel_bg": {
+    "type": "image",
+    "texture": "textures/ui/dialog_background_opaque",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "color": [
+      0.102,
+      0.039,
+      0.102
+    ],
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_title - '\u00a78\u00a7r') = #ex_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_panel_border": {
+    "type": "image",
+    "texture": "textures/ui/dialog_background_hollow_1",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "color": [
+      0.353,
+      0.353,
+      0.353
+    ],
+    "layer": -1,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_title - '\u00a78\u00a7r') = #ex_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "//_phone": "The phone screen is a FORM: Bedrock cannot open a custom clickable JSON-UI screen from a script, and the form system is the only UI a script can both open and read a press back from. scripts/phones.js titles that form with PHONE_UI_TAG ('\u00a7d\u00a7r\u00a70\u00a7r') followed by the handset's name, so each panel below keys off the MODEL NAME already in the title and paints that exact handset's front \u2014 a Dynamic Island for the iPhone, a pill for HONOR and Huawei, a punch-hole for the rest, and an unbroken black screen for the RedMagic, which has an under-display camera. Every panel is visible:false and only switched on by its own binding, so a binding that stops resolving means a plain form rather than a stuck overlay.",
+  "ex_skin_layer": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": -3,
+    "controls": [
+      {
+        "ex_panel_bg@server_form.ex_panel_bg": {}
+      },
+      {
+        "ex_panel_border@server_form.ex_panel_border": {}
+      },
+      {
+        "ex_phone_iphone_17_pro_max@server_form.ex_phone_iphone_17_pro_max": {}
+      },
+      {
+        "ex_phone_samsung_galaxy_s26_ultra@server_form.ex_phone_samsung_galaxy_s26_ultra": {}
+      },
+      {
+        "ex_phone_oppo_find_x9_ultra@server_form.ex_phone_oppo_find_x9_ultra": {}
+      },
+      {
+        "ex_phone_vivo_x300_ultra@server_form.ex_phone_vivo_x300_ultra": {}
+      },
+      {
+        "ex_phone_vivo_x500@server_form.ex_phone_vivo_x500": {}
+      },
+      {
+        "ex_phone_honor_magic9_pro_max@server_form.ex_phone_honor_magic9_pro_max": {}
+      },
+      {
+        "ex_phone_huawei_mate_80_pro@server_form.ex_phone_huawei_mate_80_pro": {}
+      },
+      {
+        "ex_phone_nothing_phone@server_form.ex_phone_nothing_phone": {}
+      },
+      {
+        "ex_phone_redmagic_11s_pro@server_form.ex_phone_redmagic_11s_pro": {}
+      }
+    ]
+  },
+  "long_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "ex_skin_layer@server_form.ex_skin_layer": {}
+          }
+        ]
+      }
+    ]
+  },
+  "custom_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "ex_skin_layer@server_form.ex_skin_layer": {}
+          }
+        ]
+      }
+    ]
+  },
+  "ex_phone_iphone_17_pro_max": {
+    "type": "image",
+    "texture": "textures/ui/phones/iphone_17_pro_max",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'iPhone 17 Pro Max') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_samsung_galaxy_s26_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/samsung_galaxy_s26_ultra",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Samsung Galaxy S26 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_oppo_find_x9_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/oppo_find_x9_ultra",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'OPPO Find X9 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_vivo_x300_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/vivo_x300_ultra",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'vivo X300 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_vivo_x500": {
+    "type": "image",
+    "texture": "textures/ui/phones/vivo_x500",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'vivo X500') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_honor_magic9_pro_max": {
+    "type": "image",
+    "texture": "textures/ui/phones/honor_magic9_pro_max",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'HONOR Magic9 Pro Max') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_huawei_mate_80_pro": {
+    "type": "image",
+    "texture": "textures/ui/phones/huawei_mate_80_pro",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Huawei Mate 80 Pro') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_nothing_phone": {
+    "type": "image",
+    "texture": "textures/ui/phones/nothing_phone",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Nothing Phone') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "ex_phone_redmagic_11s_pro": {
+    "type": "image",
+    "texture": "textures/ui/phones/redmagic_11s_pro",
+    "size": [
+      132,
+      264
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -2,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'RedMagic 11S Pro') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

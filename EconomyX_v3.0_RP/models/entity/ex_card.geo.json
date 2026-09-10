@@ -1,0 +1,106 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.ex_card",
+        "texture_width": 192,
+        "texture_height": 128,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "card",
+          "pivot": [
+            0,
+            22.0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -3.5,
+                17.2,
+                -0.125
+              ],
+              "size": [
+                7,
+                9.6,
+                0.25
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    68,
+                    94
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    68,
+                    0
+                  ],
+                  "uv_size": [
+                    68,
+                    94
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    136,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    94
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    136,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    94
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    96
+                  ],
+                  "uv_size": [
+                    68,
+                    4
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    96
+                  ],
+                  "uv_size": [
+                    68,
+                    4
+                  ]
+                }
+              }
+            }
+          ],
+          "binding": "q.item_slot_to_bone_name(context.item_slot)"
+        }
+      ]
+    }
+  ]
+}

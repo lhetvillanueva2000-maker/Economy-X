@@ -10,6 +10,39 @@ the `.mcaddon` / `.zip` are named to match.
 
 ---
 
+## 3.0
+
+### Fixed
+- **Held models still were not on the hand.** The 2.8 fix put the height in the
+  animation, which was the wrong place: a bone animation's `position` is applied
+  in the bone's OWN ROTATED frame, so a large Y lift combined with a rotation
+  slid the model sideways rather than lifting it. That is why the phone floated
+  beside the arm and the playing card lay on the ground. The hand height is now
+  baked into the **geometry** — every held `.geo.json` has its cubes shifted so
+  the model's centre sits at y=22 with the bone pivot at `[0,22,0]`, exactly the
+  way Microsoft's own wrench sample does it. Geometry coordinates are never
+  rotated, so the offset holds. The animations now only rotate and scale.
+- **The phone showed its cameras to the holder, not its screen.** Testing showed
+  the facing was a full 180 out from what the geometry alone suggested, so the
+  base Y rotation moves to 215 (180 + the 35 three-quarter turn).
+- **Phones and the EX Book broke blocks.** Tapping a block while holding either
+  mined it, and in creative that is instant — so sneak + use to open a screen
+  chewed holes in the world. Neither can break anything now, in any game mode.
+
+### Changed
+- **The phone screen is a real handset front, per model.** Nine fronts, each
+  keyed off the model name already in the form's title: a Dynamic Island for the
+  iPhone, a pill cutout for HONOR and Huawei, a punch-hole for Samsung, OPPO,
+  vivo and Nothing, and an unbroken black screen for the RedMagic, which has an
+  under-display camera and no cutout at all.
+
+### Still true
+- The screen's buttons are Bedrock form buttons drawn over that front. Bedrock
+  cannot open a custom clickable JSON-UI screen from a script, so the phone
+  reads as a phone but is not a pixel-accurate one.
+
+---
+
 ## 2.9
 
 Version bump only — **no functional change from 2.8**. The pack folders,
