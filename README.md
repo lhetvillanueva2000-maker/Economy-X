@@ -20,11 +20,52 @@ for you. Then, in your world settings, enable **both**:
 - `EconomyX v2.6 [BP]` under Behavior Packs
 - `EconomyX v2.6 [RP]` under Resource Packs
 
-No experiment toggles are needed. The pack builds against the stable scripting
-API (`@minecraft/server` 2.6.0, `@minecraft/server-ui` 2.0.0), so **Beta APIs
-can stay off**.
-
 The two packs depend on each other and will refuse to load alone.
+
+---
+
+## Experiments and other add-ons
+
+**EconomyX works with every experimental toggle off, every toggle on, or any
+mix of them.** Nothing in either pack is gated behind an experiment:
+
+| Toggle | Does it affect EconomyX? |
+|---|---|
+| **Beta APIs** | **No.** It only *adds* the `-beta` module versions; it never removes the stable ones. EconomyX builds against stable `@minecraft/server` 2.6.0 and `@minecraft/server-ui` 2.0.0, which load either way. |
+| Custom Components V2 | No. No item declares a custom component. |
+| Custom Biomes · Data-Driven Jigsaw Structures | No. There is no `worldgen/` folder. |
+| Experimental Creator Camera | No. No camera presets. |
+| Render Dragon for Creators | No. No PBR texture sets. |
+| Villager Trade Rebalancing | No. The phone dealer runs a scripted shop, not a vanilla trade table, so rebalancing cannot touch its prices or stock. |
+
+So you can drop EconomyX into a world running add-ons that *do* need
+experiments, and leave the toggles wherever those add-ons want them.
+
+### The thing that actually conflicts: UI files
+
+Bedrock loads exactly **one** copy of each UI file. Whichever resource pack sits
+highest in the world's pack list wins, and every other pack's version of that
+file is ignored outright. EconomyX ships two:
+
+| File | What it does | Losing it costs you |
+|---|---|---|
+| `ui/hud_screen.json` | The centred phone screen | The phone screen overlay |
+| `ui/server_form.json` | Dark skin on EconomyX's menus | Menus look like stock Bedrock forms |
+
+Both are written **additively** — they insert a layer and never redefine a
+vanilla control — so when EconomyX wins the stack the vanilla HUD and vanilla
+forms still work perfectly. What is lost is the *other* pack's changes to that
+same file.
+
+If another add-on's HUD or menu skin matters more, you have two clean fixes:
+
+1. **Move that add-on's resource pack above EconomyX** in the world's pack list.
+   EconomyX loses only a cosmetic layer.
+2. Set `compat.phoneScreenOverlay` to `false` in `scripts/config.js` and delete
+   the matching file from `EconomyX_v2.6_RP/ui/`. Nothing else reads them.
+
+Either way the banking, phones, dealer and gambling are untouched — these files
+are skin, not machinery.
 
 ---
 
@@ -343,6 +384,7 @@ Phone numbers live in their own files:
 | `RESTOCK_DAYS` | `scripts/phones.js` | 3 | In-game days between restocks |
 | `VILLAGE_MIN_VILLAGERS` | `scripts/phones.js` | 2 | Villagers needed to count as a village |
 | `DEALER_SPACING` | `scripts/phones.js` | 64 | Minimum blocks between two dealers |
+| `compat.phoneScreenOverlay` | `scripts/config.js` | true | Set false when another add-on owns `ui/hud_screen.json` |
 
 ---
 

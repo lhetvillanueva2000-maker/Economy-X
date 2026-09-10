@@ -241,6 +241,47 @@ export const CONFIG = {
     bust: 21,
     // The dealer stops drawing once it reaches this, like a real table.
     dealerStandsOn: 17
+  },
+
+  /* ---- Running alongside other add-ons ----
+   *
+   * EconomyX needs NO experimental toggles. Nothing in either pack is gated
+   * behind one: both script modules are stable releases, and the "Beta APIs"
+   * experiment only ADDS the "-beta" module versions, it never takes the
+   * stable ones away. So EconomyX behaves identically with every experiment
+   * off, every experiment on, or any mix — which means it is safe to drop into
+   * a world running other add-ons that do require experiments.
+   *
+   * The genuine conflict risk with other add-ons is not experiments at all, it
+   * is JSON-UI. Bedrock loads only ONE copy of each UI file: whichever pack
+   * sits highest in the world's resource pack stack wins, and every other
+   * pack's version of that file is ignored outright. EconomyX ships two:
+   *
+   *   ui/hud_screen.json   the centred phone screen
+   *   ui/server_form.json  the dark skin on EconomyX's own menus
+   *
+   * Both are written additively — they insert a layer and never redefine a
+   * vanilla control — so when EconomyX wins the stack the vanilla HUD and
+   * vanilla forms still work perfectly. What is lost is the OTHER pack's
+   * changes to that same file.
+   *
+   * If another add-on's HUD or menu skin matters more than EconomyX's, you have
+   * two clean fixes, in order of preference:
+   *   1. Move that add-on's resource pack ABOVE EconomyX in the world's pack
+   *      list. EconomyX loses only the cosmetic layer below.
+   *   2. Turn the matching switch here off, and delete the matching file from
+   *      EconomyX_v2.6_RP/ui/. Nothing else in the mod reads them, so the
+   *      banking, phones, dealer and gambling all carry on unchanged.
+   */
+  compat: {
+    /**
+     * The black phone screen that appears in the centre of the display while a
+     * phone is held. Set false and scripts/phones.js stops publishing the
+     * marker that drives it, so the overlay can never appear — do this if
+     * another add-on owns ui/hud_screen.json. Purely cosmetic either way:
+     * phones still render in the hand, and still work.
+     */
+    phoneScreenOverlay: true
   }
 };
 

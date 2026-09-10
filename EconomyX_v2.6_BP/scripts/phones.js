@@ -689,7 +689,8 @@ function holdingPhone(player) {
 }
 
 function updatePhoneHud(player) {
-  const on = holdingPhone(player);
+  // Switched off when another add-on owns ui/hud_screen.json — see CONFIG.compat.
+  const on = CONFIG.compat?.phoneScreenOverlay !== false && holdingPhone(player);
   const was = hudShown.get(player.id) === true;
 
   if (on) {
@@ -778,8 +779,14 @@ export function initPhones(injected) {
     });
   });
 
-  /* ---- On-screen phone display ---- */
-  safeSubscribe("phoneHudTicker", () => {
+  /* ---- On-screen phone display ----
+   * Not even registered when the overlay is switched off, so a world running
+   * another add-on's HUD pays nothing for a feature it cannot use.
+   */
+  if (CONFIG.compat?.phoneScreenOverlay === false) {
+    console.warn("[EconomyX] phone screen overlay disabled in config — ui/hud_screen.json can be deleted");
+  }
+  if (CONFIG.compat?.phoneScreenOverlay !== false) safeSubscribe("phoneHudTicker", () => {
     system.runInterval(() => {
       try {
         for (const player of world.getAllPlayers()) {
