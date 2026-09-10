@@ -45,27 +45,27 @@ experiments, and leave the toggles wherever those add-ons want them.
 
 Bedrock loads exactly **one** copy of each UI file. Whichever resource pack sits
 highest in the world's pack list wins, and every other pack's version of that
-file is ignored outright. EconomyX ships two:
+file is ignored outright. EconomyX ships exactly one:
 
 | File | What it does | Losing it costs you |
 |---|---|---|
-| `ui/hud_screen.json` | The centred phone screen | The phone screen overlay |
-| `ui/server_form.json` | Dark skin on EconomyX's menus | Menus look like stock Bedrock forms |
+| `ui/server_form.json` | Dark skin on EconomyX's menus, and the handset front behind the phone screen | Menus look like stock Bedrock forms; the phone screen keeps its working buttons but loses its painted front |
 
-Both are written **additively** — they insert a layer and never redefine a
-vanilla control — so when EconomyX wins the stack the vanilla HUD and vanilla
-forms still work perfectly. What is lost is the *other* pack's changes to that
-same file.
+**EconomyX does not touch `hud_screen.json` at all**, so your HUD and any other
+add-on's HUD are left completely alone.
 
-If another add-on's HUD or menu skin matters more, you have two clean fixes:
+`server_form.json` is written **additively** — it inserts a layer and never
+redefines a vanilla control — so when EconomyX wins the stack, vanilla forms
+still work perfectly. What is lost is the *other* pack's changes to that file.
+
+If another add-on's menu skin matters more, you have two clean fixes:
 
 1. **Move that add-on's resource pack above EconomyX** in the world's pack list.
    EconomyX loses only a cosmetic layer.
-2. Set `compat.phoneScreenOverlay` to `false` in `scripts/config.js` and delete
-   the matching file from `EconomyX_v2.6_RP/ui/`. Nothing else reads them.
+2. Delete `EconomyX_v2.6_RP/ui/server_form.json`. Nothing else reads it.
 
-Either way the banking, phones, dealer and gambling are untouched — these files
-are skin, not machinery.
+Either way the banking, phones, dealer and gambling are untouched — this file is
+skin, not machinery.
 
 ---
 
@@ -273,12 +273,28 @@ the models themselves — in all nine handsets the camera bumps sit on the −Z 
 of the body, so at a yaw of zero the back points the way you're facing and the
 screen points back at you, in first and third person alike.
 
-Hold a phone and its **black screen appears in the centre of your display**. The
-screen is off for now — no apps behind it yet — but the overlay is live and
-tracks the phone in and out of your hand.
+### Opening one
 
-> Phones are **look-only for now**: a held item with a model, a screen overlay
-> and a price. No apps, no functionality behind the glass yet.
+**Sneak + use** a phone to open its screen — the same gesture that reads a bank
+card in your hand. The screen is deliberately **blank**; the three buttons on it
+are the handset's physical ones:
+
+| Button | What it does |
+|---|---|
+| ▲ Volume Up | Clickable, inert for now |
+| ▼ Volume Down | Clickable, inert for now |
+| ⏻ Power | Clickable, inert for now |
+
+Putting the phone away closes the screen.
+
+> Bedrock cannot open a custom clickable JSON-UI screen from a script — the form
+> system is the only UI a script can both open *and* read a press back from. So
+> the phone screen is a form, with the handset's front painted behind it by
+> `ui/server_form.json`. The buttons are real and wired; they simply do nothing
+> yet.
+
+> Phones are **look-only for now**: a held item with a model, a screen and a
+> price. No apps behind the glass yet.
 
 ---
 
@@ -384,7 +400,6 @@ Phone numbers live in their own files:
 | `RESTOCK_DAYS` | `scripts/phones.js` | 3 | In-game days between restocks |
 | `VILLAGE_MIN_VILLAGERS` | `scripts/phones.js` | 2 | Villagers needed to count as a village |
 | `DEALER_SPACING` | `scripts/phones.js` | 64 | Minimum blocks between two dealers |
-| `compat.phoneScreenOverlay` | `scripts/config.js` | true | Set false when another add-on owns `ui/hud_screen.json` |
 
 ---
 
@@ -456,17 +471,21 @@ Stated plainly rather than buried:
   form layout.
 - **Phones do nothing behind the glass yet.** The model and the screen overlay
   are real; there are no apps.
-- **Phone grip poses want an in-game check.** The positions are derived from the
-  playing cards' known-good hand coordinates, corrected for the fact that a
-  phone's origin sits at its lower third so part of it hangs below the grip. All
-  26 tune from `RP/animations/ex_phone.animation.json` alone — the file carries a
-  symptom-to-fix table in its header.
-- **The screen overlay is driven by an invisible title.** No JSON-UI binding
-  reports what a player is holding, so `scripts/phones.js` pushes a marker string
-  that renders as nothing and `ui/hud_screen.json` watches for it. It is declared
-  invisible by default, so if the binding ever stops resolving the overlay simply
-  never appears rather than covering the screen. That file documents the two
-  things to try if it doesn't show up.
+- **Held models are anchored by a bone binding, not by the animations.** Every
+  held geometry's root bone carries
+  `"binding": "q.item_slot_to_bone_name(context.item_slot)"`, which is what pins
+  it into the hand. Without it Bedrock draws the model in the player's own model
+  space — that is what put cards between the legs and left phones floating. The
+  animations now only set rotation and scale; their positions are zero on
+  purpose. If something ever renders down by the feet again, the binding is the
+  thing to check, not the pose.
+- **Grip rotation and scale still want an in-game eye.** All 26 phones tune from
+  `RP/animations/ex_phone.animation.json` alone, which carries a symptom-to-fix
+  table in its header.
+- **The phone screen is a form, not a HUD.** Bedrock cannot open a custom
+  clickable JSON-UI screen from a script, so the buttons are form buttons with
+  the handset front painted behind them. It reads as a phone, but it is not a
+  pixel-accurate one — the button positions are the form's, not the model's.
 - **Dealer placement needs a real village.** Detection keys off a cluster of at
   least two vanilla villagers nearby, so a village whose villagers have all been
   killed will not get a dealer until they repopulate.

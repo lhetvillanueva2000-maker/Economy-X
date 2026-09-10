@@ -97,7 +97,8 @@
                 }
               }
             }
-          ]
+          ],
+          "binding": "q.item_slot_to_bone_name(context.item_slot)"
         }
       ]
     }

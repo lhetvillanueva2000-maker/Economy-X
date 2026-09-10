@@ -3,36 +3,40 @@
     "EconomyX — phone hold poses. ONE file drives all 26 phones, because every",
     "phone geometry uses a single bone named 'phone'.",
     "",
-    "WHICH WAY DOES THE PHONE FACE",
-    "Read off the geometry, not guessed: in every one of the 9 phone models the",
-    "camera-bump cubes sit at negative Z (they protrude past the body's -0.5 to",
-    "-1.3). So:",
-    "    -Z  (north face) = the BACK of the phone, with the cameras",
-    "    +Z  (south face) = the SCREEN",
-    "In Bedrock item-bone space -Z points the way the holder is facing. At yaw 0",
-    "the cameras therefore point away from the holder — out at everyone else —",
-    "and the screen points back at the holder. That is exactly the behaviour we",
-    "want in both views, which is why both poses below use a Y rotation of 0.",
-    "Rotating Y by 180 would swap it: screen out, cameras at your own face.",
+    "THE MODEL IS ANCHORED BY THE GEOMETRY, NOT BY THIS FILE",
+    "Each phone geometry's root bone carries",
+    "    \"binding\": \"q.item_slot_to_bone_name(context.item_slot)\"",
+    "which is what actually pins the model into the hand — main_hand resolves to",
+    "the player's rightItem bone, off_hand to leftItem. Before that binding",
+    "existed the model was not attached to the hand at all: Bedrock drew it in the",
+    "player's own model space, which is why the handset floated near the feet and",
+    "the playing cards sat between the legs.",
     "",
-    "WHY THESE POSITIONS",
-    "The pack's 55 playing cards render correctly at first-person position",
-    "[-1.5, 5.5, 1.5] and third-person [0, 3.0, 0], so those are known-good hand",
-    "coordinates. The card's geometry starts at y=0, but a phone's geometry runs",
-    "from y=-5.28 up to y=+11.22 — the origin is at the lower third, where a hand",
-    "actually grips. Roughly a third of the phone therefore hangs BELOW the bone",
-    "origin, and the first-person Y is lifted to 6.5 so that overhang does not",
-    "drop out of the visible frame. The previous values put the origin at y=1.0,",
-    "which pushed the whole handset below the first-person view — the phone was",
-    "being drawn, just not anywhere you could see it.",
+    "Because the bone pivot is [0,0,0] and it now lands ON the hand, this file",
+    "needs NO position offset. The old values here were compensating for the",
+    "broken placement and are gone. Keep position at [0,0,0] unless you are",
+    "deliberately nudging the grip.",
     "",
-    "TUNING — grip poses always want a nudge or two once you see them in game.",
-    "Edit ONLY this file; nothing else references these numbers.",
-    "  phone clips into the arm ............ raise position[1], or lower scale",
-    "  phone hangs below the screen edge ... raise position[1]",
+    "WHICH WAY DOES THE PHONE FACE (confirmed correct in testing — do not change)",
+    "In all 9 models the camera-bump cubes sit at negative Z, so -Z is the BACK",
+    "and +Z is the SCREEN. In item-bone space -Z points the way the holder faces,",
+    "so at yaw 0 the cameras point out at everyone else and the screen points back",
+    "at the holder. That is why both poses below use a Y rotation of 0.",
+    "",
+    "The geometry runs from y=-5.28 to y=+11.22 with the origin at the lower",
+    "third, where a hand actually grips, so roughly a third of the body sits below",
+    "the hand and two thirds above it. At scale 0.5 that is about 2.6 units below",
+    "and 5.6 above.",
+    "",
+    "TUNING — edit ONLY this file; nothing else references these numbers.",
+    "  phone is still down by the feet ..... the binding is not resolving; add",
+    "                                       position [0, 24, 0] as a stopgap and",
+    "                                       say so, because the real fix is the",
+    "                                       binding in the .geo.json",
+    "  phone too big or too small ......... change scale",
     "  you see the cameras, not the screen . set rotation[1] to 180",
     "  phone lies flat instead of upright .. move rotation[0] toward 0",
-    "  sits too far left/right of the hand . adjust position[0]"
+    "  clips through the hand ............. nudge position[2]"
   ],
   "format_version": "1.8.0",
   "animations": {
@@ -40,8 +44,8 @@
       "loop": true,
       "bones": {
         "phone": {
-          "position": [-1.0, 6.5, 1.5],
-          "rotation": [-35, 0, 0],
+          "position": [0.0, 0.0, 0.0],
+          "rotation": [-18, 0, 0],
           "scale": 0.55
         }
       }
@@ -50,9 +54,9 @@
       "loop": true,
       "bones": {
         "phone": {
-          "position": [0.0, 3.0, 0.0],
+          "position": [0.0, 0.0, 0.0],
           "rotation": [-12, 0, 0],
-          "scale": 0.45
+          "scale": 0.5
         }
       }
     }

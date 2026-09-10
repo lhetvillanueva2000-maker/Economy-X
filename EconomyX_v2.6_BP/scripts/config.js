@@ -255,34 +255,33 @@ export const CONFIG = {
    * The genuine conflict risk with other add-ons is not experiments at all, it
    * is JSON-UI. Bedrock loads only ONE copy of each UI file: whichever pack
    * sits highest in the world's resource pack stack wins, and every other
-   * pack's version of that file is ignored outright. EconomyX ships two:
+   * pack's version of that file is ignored outright.
    *
-   *   ui/hud_screen.json   the centred phone screen
-   *   ui/server_form.json  the dark skin on EconomyX's own menus
+   * EconomyX now ships exactly ONE such file:
    *
-   * Both are written additively — they insert a layer and never redefine a
-   * vanilla control — so when EconomyX wins the stack the vanilla HUD and
-   * vanilla forms still work perfectly. What is lost is the OTHER pack's
-   * changes to that same file.
+   *   ui/server_form.json  the dark skin on EconomyX's menus, and the handset
+   *                        front painted behind the phone screen
    *
-   * If another add-on's HUD or menu skin matters more than EconomyX's, you have
-   * two clean fixes, in order of preference:
+   * It used to ship ui/hud_screen.json as well, for an always-on phone overlay.
+   * That is gone: the phone screen is a form you open with sneak + use, so the
+   * HUD is left completely alone and there is one less contested file.
+   *
+   * server_form.json is written additively — it inserts a layer and never
+   * redefines a vanilla control — so when EconomyX wins the stack, vanilla
+   * forms still work perfectly. What is lost is the OTHER pack's changes to
+   * that same file.
+   *
+   * If another add-on's menu skin matters more than EconomyX's, you have two
+   * clean fixes, in order of preference:
    *   1. Move that add-on's resource pack ABOVE EconomyX in the world's pack
-   *      list. EconomyX loses only the cosmetic layer below.
-   *   2. Turn the matching switch here off, and delete the matching file from
-   *      EconomyX_v2.6_RP/ui/. Nothing else in the mod reads them, so the
-   *      banking, phones, dealer and gambling all carry on unchanged.
+   *      list. EconomyX loses only the cosmetic layer.
+   *   2. Delete EconomyX_v2.6_RP/ui/server_form.json. Nothing else in the mod
+   *      reads it, so the banking, phones, dealer and gambling all carry on
+   *      unchanged — the menus just look like stock Bedrock forms, and the
+   *      phone screen loses its painted handset front while keeping its
+   *      working buttons.
    */
-  compat: {
-    /**
-     * The black phone screen that appears in the centre of the display while a
-     * phone is held. Set false and scripts/phones.js stops publishing the
-     * marker that drives it, so the overlay can never appear — do this if
-     * another add-on owns ui/hud_screen.json. Purely cosmetic either way:
-     * phones still render in the hand, and still work.
-     */
-    phoneScreenOverlay: true
-  }
+  compat: {}
 };
 
 /** Returns the debit card tier definition object for a given card color. */

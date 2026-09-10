@@ -48,22 +48,17 @@ const PROP_STOCK = "ex:stock";
 const PROP_RESTOCK_DAY = "ex:restock_day";
 const BOOK_GRANTED_KEY = "ex:book_granted";
 
-/* ---- On-screen phone display ----
- * No JSON-UI binding reports what a player is holding, so the screen overlay in
- * RP/ui/hud_screen.json is driven by an invisible title instead: four colour
- * codes and no glyphs, which renders as nothing but is still readable by the
- * #hud_title_text_string binding.
- *
- * MUST match the string in RP/ui/hud_screen.json exactly. It deliberately does
- * not contain "§8§r" (UI_TAG, the marker ui/server_form.json watches for), so
- * the phone overlay and the form skin can never trigger one another.
- */
-const HUD_TAG = "§9§r§a§r";
-const HUD_RATE = 20; // ticks between refreshes
-const HUD_STAY = 45; // title lifetime, comfortably longer than HUD_RATE
 const PHONE_ID_SET = new Set(PHONE_IDS);
-/** playerId -> is the overlay currently up, so we only clear on the transition. */
-const hudShown = new Map();
+
+/**
+ * Marker prefixing the phone UI's title so RP/ui/server_form.json can paint the
+ * handset's front behind it. Colour codes only, so it renders as nothing.
+ *
+ * It deliberately does NOT contain "§8§r" (UI_TAG in main.js), because that is
+ * the marker the ordinary EconomyX form skin watches for — a phone screen and a
+ * bank panel must never both paint on the same screen.
+ */
+const PHONE_UI_TAG = "§d§r§0§r";
 
 /** Everything main.js lends us. Populated by initPhones(). */
 let api = null;
@@ -665,57 +660,71 @@ function grantBookOnce(player) {
 }
 
 /* ------------------------------------------------------------
- *  The on-screen phone display
+ *  The phone screen
  *
- *  While a phone is in the main hand we keep an invisible title alive; the
- *  JSON-UI panel in RP/ui/hud_screen.json watches for it and paints the
- *  handset's black screen in the centre of the display. The moment the phone
- *  leaves the hand the title is cleared and the panel switches itself off.
+ *  Sneak + use a phone to open it. Bedrock cannot open a custom clickable
+ *  JSON-UI screen from a script — the only UI a script can both open AND read
+ *  a press back from is the form system — so the handset is a form, and
+ *  RP/ui/server_form.json paints its front behind it via PHONE_UI_TAG.
  *
- *  The title is re-sent faster than it expires so the overlay cannot flicker
- *  between refreshes, and it is only re-sent on a state change or a tick
- *  boundary, never every tick.
+ *  The screen itself is deliberately EMPTY. The three buttons are the phone's
+ *  physical ones: wired and clickable, but inert for now. Pressing one confirms
+ *  on the action bar and drops you back to the screen. Apps come later.
  * ---------------------------------------------------------- */
 
-function holdingPhone(player) {
+/** The phone in the player's selected hotbar slot right now, or null. */
+function heldPhone(player) {
   try {
     const inv = player.getComponent("minecraft:inventory")?.container;
-    if (!inv) return false;
+    if (!inv) return null;
     const held = inv.getItem(player.selectedSlotIndex);
-    return !!held && PHONE_ID_SET.has(held.typeId);
+    if (!held || !PHONE_ID_SET.has(held.typeId)) return null;
+    return held.typeId;
   } catch {
-    return false;
+    return null;
   }
 }
 
-function updatePhoneHud(player) {
-  // Switched off when another add-on owns ui/hud_screen.json — see CONFIG.compat.
-  const on = CONFIG.compat?.phoneScreenOverlay !== false && holdingPhone(player);
-  const was = hudShown.get(player.id) === true;
+const PHONE_BUTTONS = [
+  { label: "\u00a77\u25b2  Volume Up", note: "Volume up" },
+  { label: "\u00a77\u25bc  Volume Down", note: "Volume down" },
+  { label: "\u00a77\u23fb  Power", note: "Power" }
+];
 
-  if (on) {
-    hudShown.set(player.id, true);
-    try {
-      player.onScreenDisplay.setTitle(HUD_TAG, {
-        fadeInDuration: 0,
-        stayDuration: HUD_STAY,
-        fadeOutDuration: 0
-      });
-    } catch {
-      /* screen display not ready this tick — the next pass picks it up */
-    }
-    return;
-  }
+async function openPhoneUi(player, phoneId) {
+  const { actionBar, holdActionBar } = api;
+  const phone = PHONE_BY_ID.get(phoneId);
+  if (!phone) return;
 
-  if (was) {
-    hudShown.set(player.id, false);
+  for (;;) {
+    // Putting the phone away closes the screen.
+    if (heldPhone(player) !== phoneId) return;
+
+    const form = new ActionFormData()
+      // PHONE_UI_TAG, not t(). The bank panel skin must not paint behind a
+      // phone screen, so this title deliberately carries a different marker.
+      .title(PHONE_UI_TAG + phone.name)
+      // Blank screen, on purpose. These lines give the screen area height
+      // without putting anything on it.
+      .body("\n\n\n\n\n\n\n\n\n\n\n\n");
+
+    for (const b of PHONE_BUTTONS) form.button(b.label);
+    form.button("\u00a78Put away");
+
+    const res = await form.show(player);
+    if (res.canceled) return;
+    if (res.selection === PHONE_BUTTONS.length) return; // Put away
+
+    const pressed = PHONE_BUTTONS[res.selection];
+    if (!pressed) return;
     try {
-      // Only ever clear a title WE put up. If the marker is gone already,
-      // something else owns the title and we must not stamp on it.
-      player.onScreenDisplay.clearTitle();
+      player.playSound("random.click");
     } catch {
       /* no-op */
     }
+    actionBar(player, `\u00a78${pressed.note}`);
+    holdActionBar(player, 20);
+    // Inert for now — straight back to the screen.
   }
 }
 
@@ -779,32 +788,23 @@ export function initPhones(injected) {
     });
   });
 
-  /* ---- On-screen phone display ----
-   * Not even registered when the overlay is switched off, so a world running
-   * another add-on's HUD pays nothing for a feature it cannot use.
-   */
-  if (CONFIG.compat?.phoneScreenOverlay === false) {
-    console.warn("[EconomyX] phone screen overlay disabled in config — ui/hud_screen.json can be deleted");
-  }
-  if (CONFIG.compat?.phoneScreenOverlay !== false) safeSubscribe("phoneHudTicker", () => {
-    system.runInterval(() => {
+  /* ---- Opening the phone ---- */
+  safeSubscribe("phoneUse", () => {
+    world.afterEvents.itemUse.subscribe((event) => {
       try {
-        for (const player of world.getAllPlayers()) {
-          try {
-            updatePhoneHud(player);
-          } catch {
-            /* skip this player, keep the loop alive */
-          }
-        }
+        const player = event.source;
+        if (!player || player.typeId !== "minecraft:player") return;
+        const typeId = event.itemStack?.typeId;
+        if (!typeId || !PHONE_ID_SET.has(typeId)) return;
+        // Sneak + use, matching how a bank card is read in the hand.
+        if (!player.isSneaking) return;
+        if (!debounceOpen(player)) return;
+        system.run(() => {
+          openPhoneUi(player, typeId).catch((e) => console.warn(`[EconomyX] phone ui: ${e}`));
+        });
       } catch (err) {
-        console.warn(`[EconomyX] phone hud: ${err}`);
+        console.warn(`[EconomyX] phone use: ${err}`);
       }
-    }, HUD_RATE);
-  });
-
-  safeSubscribe("phoneHudCleanup", () => {
-    world.afterEvents.playerLeave.subscribe((event) => {
-      hudShown.delete(event.playerId);
     });
   });
 
