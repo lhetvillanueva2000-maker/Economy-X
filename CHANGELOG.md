@@ -10,6 +10,21 @@ the `.mcaddon` / `.zip` are named to match.
 
 ---
 
+## 2.9
+
+Version bump only — **no functional change from 2.8**. The pack folders,
+manifests, README and built files all move to 2.9, and this section stays open
+to collect whatever lands next.
+
+Bump with `tools/bump_version.sh <old> <new>`, which updates the folder names,
+both manifest names, both header and module version arrays, the sibling-pack
+dependency versions and every README reference in one go. It deliberately leaves
+the `@minecraft/server` dependency strings alone — those are scripting API
+versions, not pack versions — and never touches the pack UUIDs, which must stay
+fixed or an update installs as a second copy of the mod.
+
+---
+
 ## 2.8
 
 ### Fixed
