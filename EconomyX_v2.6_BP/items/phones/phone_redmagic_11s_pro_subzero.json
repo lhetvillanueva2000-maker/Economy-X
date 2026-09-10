@@ -1,0 +1,17 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ex:phone_redmagic_11s_pro_subzero",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "ex_phone_redmagic_11s_pro_subzero",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:should_despawn": false
+    }
+  }
+}

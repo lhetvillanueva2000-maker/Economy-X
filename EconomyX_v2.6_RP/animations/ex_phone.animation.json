@@ -1,0 +1,41 @@
+{
+  "__comment__": [
+    "EconomyX — phone hold poses. ONE file drives all 26 phones, because every",
+    "phone geometry uses a single bone named 'phone'.",
+    "",
+    "Each geometry is already raised so its origin sits at the LOWER THIRD of the",
+    "body — that is where a hand actually grips a phone. So position [0,0,0] puts",
+    "the grip point in the palm, with roughly a third of the phone below the hand",
+    "and two thirds standing above it.",
+    "",
+    "TUNING — grip poses always want a nudge or two once you see them in game.",
+    "Edit ONLY this file; nothing else references these numbers.",
+    "  phone clips into the arm ............ raise position[1], or lower scale",
+    "  screen faces away in first person ... make rotation[0] more negative (toward -90)",
+    "  phone lies flat instead of upright .. move rotation[0] toward 0",
+    "  sits too far left/right of the hand . adjust position[0]"
+  ],
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ex_phone.first_person": {
+      "loop": true,
+      "bones": {
+        "phone": {
+          "position": [2.0, 1.0, 1.5],
+          "rotation": [-62, 18, 6],
+          "scale": 0.55
+        }
+      }
+    },
+    "animation.ex_phone.third_person": {
+      "loop": true,
+      "bones": {
+        "phone": {
+          "position": [0.0, 0.5, 0.5],
+          "rotation": [-18, 0, 0],
+          "scale": 0.45
+        }
+      }
+    }
+  }
+}

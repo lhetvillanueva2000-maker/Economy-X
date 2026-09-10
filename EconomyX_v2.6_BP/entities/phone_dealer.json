@@ -1,0 +1,56 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "ex:phone_dealer",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "//family": "Deliberately NOT in the 'mob' family. This is a shopkeeper, not wildlife — it should not count toward the mob cap, and nothing that hunts mobs should hunt it.",
+      "minecraft:type_family": {
+        "family": ["ex_dealer", "ex_npc"]
+      },
+      "minecraft:collision_box": { "width": 0.6, "height": 1.9 },
+      "minecraft:health": { "value": 20, "max": 20 },
+      "minecraft:physics": {},
+      "minecraft:pushable": { "is_pushable": false, "is_pushable_by_piston": false },
+      "minecraft:knockback_resistance": { "value": 1.0 },
+      "minecraft:fire_immune": true,
+
+      "//": "A shop is not a mob. A raid or a stray skeleton must never delete a village's only phone dealer.",
+      "minecraft:damage_sensor": {
+        "triggers": [{ "cause": "all", "deals_damage": "no" }]
+      },
+      "minecraft:persistent": {},
+
+      "minecraft:movement": { "value": 0.22 },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+
+      "minecraft:nameable": { "always_show": false, "allow_name_tag_renaming": true },
+
+      "minecraft:behavior.look_at_player": {
+        "priority": 1,
+        "look_distance": 8,
+        "probability": 0.36
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 3,
+        "speed_multiplier": 0.6,
+        "xz_distance": 8,
+        "interval": 160
+      },
+      "minecraft:behavior.random_look_around": { "priority": 4 },
+
+      "minecraft:conditional_bandwidth_optimization": {}
+    }
+  }
+}

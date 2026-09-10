@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "ex:phone_samsung_s26_ultra_silver_shadow",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/entity/ex/phones/samsung_s26_ultra_silver_shadow",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.samsung_s26_ultra"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.main_hand = c.item_slot == 'main_hand';",
+          "v.off_hand  = c.item_slot == 'off_hand';"
+        ],
+        "animate": [
+          {
+            "third_person": "!c.is_first_person"
+          },
+          {
+            "first_person": "c.is_first_person"
+          }
+        ]
+      },
+      "animations": {
+        "first_person": "animation.ex_phone.first_person",
+        "third_person": "animation.ex_phone.third_person"
+      },
+      "render_controllers": [
+        "controller.render.item_default"
+      ]
+    }
+  }
+}

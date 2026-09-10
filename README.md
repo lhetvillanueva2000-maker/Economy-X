@@ -3,7 +3,8 @@
 A Minecraft **Bedrock Edition** add-on that puts a working bank inside your
 world: debit cards with real balances, credit cards with real debt, physical
 cash you can carry and lose, ATMs and terminals you have to walk up to and
-sign into, and two gambling blocks that will happily take it all off you.
+sign into, two gambling blocks that will happily take it all off you, and a
+village phone dealer who will sell you a 4,050 UD handset if you can afford it.
 
 **Author:** Usersainyy
 **Current version:** 2.6
@@ -191,6 +192,55 @@ interest like anything else.
 
 ---
 
+## Phones
+
+Twenty-six handsets across nine models — iPhone 17 Pro Max, Galaxy S26 Ultra,
+OPPO Find X9 Ultra, vivo X300 Ultra, vivo X500, HONOR Magic9 Pro Max, Huawei
+Mate 80 Pro, Nothing Phone (4a) Pro and RedMagic 11S Pro. Each renders as a
+real 3D model in your hand, built from published device dimensions.
+
+**You cannot craft a phone.** There is no recipe, and there is not meant to be
+one. In creative they sit in their own menu group; in survival there is exactly
+one way to get one.
+
+### The dealer
+
+An **EX Phone Dealer** settles in every village — any village type, any villager
+variant. The mod finds villages by looking for a cluster of vanilla villagers
+near you and placing one dealer per area, so a dealer turns up wherever a real
+village is and never in empty terrain.
+
+Walk up and use them. No need to hold anything.
+
+Every handset costs a flat **4,050 UD**, whichever model you pick. Each dealer
+carries **four to six models** and rerolls its stock every **3 in-game days**,
+so the phone you want is worth shopping around for.
+
+| Paying by | What happens |
+|---|---|
+| **Debit card** | PIN required. Deducted from the balance. |
+| **Credit card** | PIN required. Borrowed against your limit, and interest is charged on the spot exactly like a cash advance. |
+| **Cash** | Handed over on the spot, no PIN. Overpay and the change comes straight back to your inventory. |
+
+The dealer is damage-immune and never despawns — a raid can't cost a village its
+only phone shop. Mobs can't pick a dropped phone up either.
+
+> Phones are **look-only for now**: a phone is a held item with a model, and
+> nothing else. No screen, no apps, no functionality behind it yet.
+
+---
+
+## The EX Book
+
+A plain-language guide to the whole mod, in eight chapters — what EconomyX is,
+money, opening an account, the machines, credit and debt, gambling, phones, and
+a tips page.
+
+You are handed one **the first time you join**. Lost it? **One dirt block**
+crafts another.
+
+---
+
 ## Playing cards & the EX Tool
 
 A full **55-card set**: the 52-card deck, two jokers, and a face-down card.
@@ -225,21 +275,28 @@ Craft: `Iron, Copper, Iron` / `Copper Stick` / `Stick`.
 
 ## Crafting quick reference
 
+Exact quantities, not approximations.
+
 | Item | Recipe |
 |---|---|
-| Iron Sheet | 1 Iron Ingot → 3 |
-| Medium Sized Metal Sheet | Iron Sheet + Iron Nugget |
+| Iron Sheet | 1 Iron Ingot → **3** |
+| Medium Sized Metal Sheet | 1 Iron Sheet + **2** Iron Nuggets |
 | Plain Card | 1 Medium Sized Metal Sheet |
 | Copper Stick | 2 Copper Ingots → **8** |
 | EX Tool | `ICI` / `_S_` / `_T_` — I iron, C copper, S copper stick, T stick |
-| Machine Base | Iron Block + Stone Slab |
-| ATM Head | Iron Sheet + Redstone + Glass Pane + Iron Ingot |
-| UTM Head | Iron Sheet + Redstone + Glass Pane + Gold Ingot |
-| Debt Payment Block | Iron Sheet + Redstone + Glass Pane + Redstone Block |
-| Lottery Block | Iron Block + Emerald + Glass Pane |
-| Blackjack Block | Iron Block + Emerald + Paper |
+| EX Book | **1 Dirt** |
+| Machine Base | 1 Iron Block + **2** Stone Slabs |
+| ATM Head | **3** Iron Sheets + **2** Redstone + 1 Glass Pane + **2** Iron Ingots |
+| UTM Head | **3** Iron Sheets + **2** Redstone + 1 Glass Pane + **2** Gold Ingots |
+| Debt Payment Block | **3** Iron Sheets + **2** Redstone + 1 Glass Pane + 1 Redstone Block |
+| Lottery Block | 1 Iron Block + **3** Emeralds + **2** Glass Panes |
+| Blackjack Block | 1 Iron Block + **3** Emeralds + **4** Paper |
 
-Playing cards have no recipe — they are creative-only.
+Debit cards are `Plain Card + Paper + dye`; the two premium tiers add an ingot.
+Credit cards upgrade in a chain, each tier consuming the one below it.
+
+**Playing cards and phones have no recipe.** Cards are creative-only; phones are
+creative-only *or* bought from a dealer.
 
 **Create mod bridge:** `create:iron_sheet` converts to `ex:iron_sheet` if Create
 is installed. EconomyX has **no hard dependency** on Create; if it is absent the
@@ -266,18 +323,30 @@ Everything worth balancing lives in `EconomyX_v2.6_BP/scripts/config.js`.
 | `tiers[*].transferLimit` | 50000 | Per-transfer cap |
 | `values` | — | UD value of every coin, bill and vanilla valuable |
 
+Phone numbers live in their own files:
+
+| Setting | Where | Default | What it does |
+|---|---|---:|---|
+| `PHONE_PRICE` | `scripts/phone_data.js` | 4050 | Price of every handset |
+| `STOCK_MIN` / `STOCK_MAX` | `scripts/phones.js` | 4 / 6 | Models each dealer carries |
+| `RESTOCK_DAYS` | `scripts/phones.js` | 3 | In-game days between restocks |
+| `VILLAGE_MIN_VILLAGERS` | `scripts/phones.js` | 2 | Villagers needed to count as a village |
+| `DEALER_SPACING` | `scripts/phones.js` | 64 | Minimum blocks between two dealers |
+
 ---
 
 ## What's in the box
 
-98 items · 6 blocks · 50 recipes · 56 3D attachables · 2 prop entities ·
-2 custom sounds · 5 geometries
+125 items · 6 blocks · 51 recipes · 82 3D attachables · 3 entities ·
+2 custom sounds · 15 geometries
 
 - 18 debit cards, 5 credit cards
 - 6 coins, 9 bills
 - 55 playing cards
-- 4 components + the EX Tool
+- 26 phones
+- 4 components + the EX Tool + the EX Book
 - 6 machine blocks
+- 2 dropped-item props + the EX Phone Dealer
 
 ---
 
@@ -286,21 +355,26 @@ Everything worth balancing lives in `EconomyX_v2.6_BP/scripts/config.js`.
 ```
 EconomyX_v2.6_BP/          behaviour pack
 ├── blocks/                6 machine blocks
-├── entities/              card_prop, tool_prop
+├── entities/              card_prop, tool_prop, phone_dealer
 ├── item_catalog/          creative menu groups
-├── items/                 43 items + items/cards/ (55 playing cards)
-├── recipes/               50 recipes
+├── items/                 44 items
+│   ├── cards/             55 playing cards
+│   └── phones/            26 phones
+├── recipes/               51 recipes
 └── scripts/
     ├── main.js            banking, terminals, gambling, machines
     ├── config.js          all the balance numbers
+    ├── phones.js          the dealer, the phone shop, the EX Book
+    ├── phone_data.js      GENERATED phone catalogue — do not hand-edit
     ├── props.js           3D dropped-item props
-    └── guards.js          keeps cards out of mob hands
+    └── guards.js          keeps cards and phones out of mob hands
 
 EconomyX_v2.6_RP/          resource pack
-├── animations/            held + dropped animation
-├── attachables/           56 3D held models — must stay FLAT
-├── entity/                client entities for the props
-├── models/entity/         geometry.ex_card, geometry.ex_tool
+├── animations/            held + dropped animation, phone hold poses
+├── attachables/           82 3D held models — must stay FLAT
+├── entity/                client entities for the props and the dealer
+├── models/entity/         ex_card, ex_tool, ex_phone_dealer
+│   └── phones/            9 phone geometries, one per handset
 ├── render_controllers/
 ├── sounds/ex/             card_insert, card_return
 ├── texts/
@@ -327,6 +401,15 @@ Stated plainly rather than buried:
 - **Interest is punishing by design.** See the warning in the credit section.
 - **Custom Lottery and Blackjack panels** are not built. Both use the standard
   form layout.
+- **Phones do nothing yet.** They are a held item with a 3D model and a price.
+  No screen, no apps, no behaviour behind them.
+- **Phone grip poses are unverified in-game.** They were authored against these
+  exact geometries and every phone shares one bone, so all 26 are tuned by
+  editing `RP/animations/ex_phone.animation.json` alone — the file carries a
+  symptom-to-fix table in its header.
+- **Dealer placement needs a real village.** Detection keys off a cluster of at
+  least two vanilla villagers nearby, so a village whose villagers have all been
+  killed will not get a dealer until they repopulate.
 
 ---
 
@@ -334,7 +417,7 @@ Stated plainly rather than buried:
 
 | Version | What landed |
 |---|---|
-| **2.6** | Stopped policing EX Tool enchantments; enchant slot opened to `all` so `/enchant` actually works |
+| **2.6** | Phones — 26 handsets with 3D held models, the village phone dealer that takes cards or cash, and the EX Book. Stopped policing EX Tool enchantments; enchant slot opened to `all` so `/enchant` actually works |
 | **2.5** | UI skin moved into the resource pack proper; mobs can no longer hold playing cards |
 | **2.4** | New 55-card set and EX Tool with 3D held and dropped models, replacing the old cards and the EX Pickaxe |
 | **2.3** | Rebuilt the debit terminal, redesigned every screen, fixed back-button navigation, new gambling payouts, empty-hand gambling access |

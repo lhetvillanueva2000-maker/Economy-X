@@ -295,6 +295,87 @@
     },
     "ex_ex_tool": {
       "textures": "textures/items/ex/ex_tool"
+    },
+    "ex_phone_iphone_17_pro_max_deep_blue": {
+      "textures": "textures/items/phones/iphone_17_pro_max_deep_blue"
+    },
+    "ex_phone_iphone_17_pro_max_cosmic_orange": {
+      "textures": "textures/items/phones/iphone_17_pro_max_cosmic_orange"
+    },
+    "ex_phone_iphone_17_pro_max_silver": {
+      "textures": "textures/items/phones/iphone_17_pro_max_silver"
+    },
+    "ex_phone_samsung_s26_ultra_black": {
+      "textures": "textures/items/phones/samsung_s26_ultra_black"
+    },
+    "ex_phone_samsung_s26_ultra_cobalt_violet": {
+      "textures": "textures/items/phones/samsung_s26_ultra_cobalt_violet"
+    },
+    "ex_phone_samsung_s26_ultra_silver_shadow": {
+      "textures": "textures/items/phones/samsung_s26_ultra_silver_shadow"
+    },
+    "ex_phone_oppo_find_x9_ultra_tundra_umber": {
+      "textures": "textures/items/phones/oppo_find_x9_ultra_tundra_umber"
+    },
+    "ex_phone_oppo_find_x9_ultra_canyon_orange": {
+      "textures": "textures/items/phones/oppo_find_x9_ultra_canyon_orange"
+    },
+    "ex_phone_oppo_find_x9_ultra_polar_glacier": {
+      "textures": "textures/items/phones/oppo_find_x9_ultra_polar_glacier"
+    },
+    "ex_phone_vivo_x300_ultra_black": {
+      "textures": "textures/items/phones/vivo_x300_ultra_black"
+    },
+    "ex_phone_vivo_x300_ultra_victory_green": {
+      "textures": "textures/items/phones/vivo_x300_ultra_victory_green"
+    },
+    "ex_phone_vivo_x300_ultra_white": {
+      "textures": "textures/items/phones/vivo_x300_ultra_white"
+    },
+    "ex_phone_vivo_x500_black": {
+      "textures": "textures/items/phones/vivo_x500_black"
+    },
+    "ex_phone_vivo_x500_white": {
+      "textures": "textures/items/phones/vivo_x500_white"
+    },
+    "ex_phone_vivo_x500_blue": {
+      "textures": "textures/items/phones/vivo_x500_blue"
+    },
+    "ex_phone_honor_magic9_pro_max_moss_green": {
+      "textures": "textures/items/phones/honor_magic9_pro_max_moss_green"
+    },
+    "ex_phone_honor_magic9_pro_max_black": {
+      "textures": "textures/items/phones/honor_magic9_pro_max_black"
+    },
+    "ex_phone_honor_magic9_pro_max_white": {
+      "textures": "textures/items/phones/honor_magic9_pro_max_white"
+    },
+    "ex_phone_huawei_mate_80_pro_obsidian_black": {
+      "textures": "textures/items/phones/huawei_mate_80_pro_obsidian_black"
+    },
+    "ex_phone_huawei_mate_80_pro_spruce_green": {
+      "textures": "textures/items/phones/huawei_mate_80_pro_spruce_green"
+    },
+    "ex_phone_huawei_mate_80_pro_dawn_gold": {
+      "textures": "textures/items/phones/huawei_mate_80_pro_dawn_gold"
+    },
+    "ex_phone_nothing_phone_4a_pro_black": {
+      "textures": "textures/items/phones/nothing_phone_4a_pro_black"
+    },
+    "ex_phone_nothing_phone_4a_pro_silver": {
+      "textures": "textures/items/phones/nothing_phone_4a_pro_silver"
+    },
+    "ex_phone_nothing_phone_4a_pro_pink": {
+      "textures": "textures/items/phones/nothing_phone_4a_pro_pink"
+    },
+    "ex_phone_redmagic_11s_pro_nightfreeze": {
+      "textures": "textures/items/phones/redmagic_11s_pro_nightfreeze"
+    },
+    "ex_phone_redmagic_11s_pro_subzero": {
+      "textures": "textures/items/phones/redmagic_11s_pro_subzero"
+    },
+    "ex_ex_book": {
+      "textures": "textures/items/components/ex_book"
     }
   }
 }

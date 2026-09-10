@@ -28,6 +28,10 @@ import { CONFIG, getTierForColor, getCreditTier, formatMoney } from "./config.js
 // into either.
 import "./props.js";
 import "./guards.js";
+// phones.js is NOT a side-effect import. It exports one initialiser that main.js
+// calls at the very bottom of this file, handing over the banking helpers below.
+// That keeps card state owned in one place and avoids a circular import.
+import { initPhones } from "./phones.js";
 
 /* ------------------------------------------------------------
  *  Constants
@@ -2866,4 +2870,44 @@ safeSubscribe("statusTicker", () => {
       console.warn(`[EconomyX] status ticker: ${err}`);
     }
   }, 10);
+});
+
+/* ------------------------------------------------------------
+ *  Phones, the village dealer, and the EX Book
+ *
+ *  Runs LAST, on purpose. Every binding handed over below is fully
+ *  initialised by this point in the file, so phones.js can rely on
+ *  all of it without importing main.js back and risking a temporal
+ *  dead zone on these consts.
+ * ---------------------------------------------------------- */
+
+initPhones({
+  // UI
+  t,
+  openKeypad,
+  isDigits,
+  debounceOpen,
+  safeSubscribe,
+  // card identity
+  CARD_IDS,
+  CREDIT_IDS,
+  findCardInInventory,
+  creditTierFromTypeId,
+  getCreditTier,
+  // card state
+  readCardData,
+  writeCardData,
+  readCreditData,
+  writeCreditData,
+  chargeInterest,
+  // cash
+  cashTotal,
+  collectCash,
+  payOutCash,
+  // feedback
+  actionBar,
+  holdActionBar,
+  confirmTransaction,
+  failTransaction,
+  round2
 });

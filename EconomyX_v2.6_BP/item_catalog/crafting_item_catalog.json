@@ -101,6 +101,7 @@
               "name": "ex:itemGroup.name.components"
             },
             "items": [
+              "ex:ex_book",
               "ex:iron_sheet",
               "ex:medium_iron_sheet",
               "ex:blank_card",
@@ -206,6 +207,45 @@
             },
             "items": [
               "ex:ex_tool"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ex:phone_iphone_17_pro_max_deep_blue",
+              "name": "ex:itemGroup.name.phones"
+            },
+            "items": [
+              "ex:phone_iphone_17_pro_max_deep_blue",
+              "ex:phone_iphone_17_pro_max_cosmic_orange",
+              "ex:phone_iphone_17_pro_max_silver",
+              "ex:phone_samsung_s26_ultra_black",
+              "ex:phone_samsung_s26_ultra_cobalt_violet",
+              "ex:phone_samsung_s26_ultra_silver_shadow",
+              "ex:phone_oppo_find_x9_ultra_tundra_umber",
+              "ex:phone_oppo_find_x9_ultra_canyon_orange",
+              "ex:phone_oppo_find_x9_ultra_polar_glacier",
+              "ex:phone_vivo_x300_ultra_black",
+              "ex:phone_vivo_x300_ultra_victory_green",
+              "ex:phone_vivo_x300_ultra_white",
+              "ex:phone_vivo_x500_black",
+              "ex:phone_vivo_x500_white",
+              "ex:phone_vivo_x500_blue",
+              "ex:phone_honor_magic9_pro_max_moss_green",
+              "ex:phone_honor_magic9_pro_max_black",
+              "ex:phone_honor_magic9_pro_max_white",
+              "ex:phone_huawei_mate_80_pro_obsidian_black",
+              "ex:phone_huawei_mate_80_pro_spruce_green",
+              "ex:phone_huawei_mate_80_pro_dawn_gold",
+              "ex:phone_nothing_phone_4a_pro_black",
+              "ex:phone_nothing_phone_4a_pro_silver",
+              "ex:phone_nothing_phone_4a_pro_pink",
+              "ex:phone_redmagic_11s_pro_nightfreeze",
+              "ex:phone_redmagic_11s_pro_subzero"
             ]
           }
         ]

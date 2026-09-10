@@ -132,3 +132,50 @@ item.ex:card_joker_red=Red Joker
 item.ex:card_joker_black=Black Joker
 item.ex:card_face_down=Face-Down Card
 item.ex:ex_tool=EX Tool
+
+## Phones (trade-only in survival; creative menu in creative)
+## Apple
+item.ex:phone_iphone_17_pro_max_deep_blue=iPhone 17 Pro Max — Deep Blue
+item.ex:phone_iphone_17_pro_max_cosmic_orange=iPhone 17 Pro Max — Cosmic Orange
+item.ex:phone_iphone_17_pro_max_silver=iPhone 17 Pro Max — Silver
+## Samsung
+item.ex:phone_samsung_s26_ultra_black=Samsung Galaxy S26 Ultra — Black
+item.ex:phone_samsung_s26_ultra_cobalt_violet=Samsung Galaxy S26 Ultra — Cobalt Violet
+item.ex:phone_samsung_s26_ultra_silver_shadow=Samsung Galaxy S26 Ultra — Silver Shadow
+## OPPO
+item.ex:phone_oppo_find_x9_ultra_tundra_umber=OPPO Find X9 Ultra — Tundra Umber
+item.ex:phone_oppo_find_x9_ultra_canyon_orange=OPPO Find X9 Ultra — Canyon Orange
+item.ex:phone_oppo_find_x9_ultra_polar_glacier=OPPO Find X9 Ultra — Polar Glacier
+## vivo
+item.ex:phone_vivo_x300_ultra_black=vivo X300 Ultra — Black
+item.ex:phone_vivo_x300_ultra_victory_green=vivo X300 Ultra — Victory Green
+item.ex:phone_vivo_x300_ultra_white=vivo X300 Ultra — White
+## vivo
+item.ex:phone_vivo_x500_black=vivo X500 — Black
+item.ex:phone_vivo_x500_white=vivo X500 — White
+item.ex:phone_vivo_x500_blue=vivo X500 — Blue
+## HONOR
+item.ex:phone_honor_magic9_pro_max_moss_green=HONOR Magic9 Pro Max — Moss Green
+item.ex:phone_honor_magic9_pro_max_black=HONOR Magic9 Pro Max — Black
+item.ex:phone_honor_magic9_pro_max_white=HONOR Magic9 Pro Max — White
+## Huawei
+item.ex:phone_huawei_mate_80_pro_obsidian_black=Huawei Mate 80 Pro — Obsidian Black
+item.ex:phone_huawei_mate_80_pro_spruce_green=Huawei Mate 80 Pro — Spruce Green
+item.ex:phone_huawei_mate_80_pro_dawn_gold=Huawei Mate 80 Pro — Dawn Gold
+## Nothing
+item.ex:phone_nothing_phone_4a_pro_black=Nothing Phone (4a) Pro — Black
+item.ex:phone_nothing_phone_4a_pro_silver=Nothing Phone (4a) Pro — Silver
+item.ex:phone_nothing_phone_4a_pro_pink=Nothing Phone (4a) Pro — Pink
+## RedMagic
+item.ex:phone_redmagic_11s_pro_nightfreeze=RedMagic 11S Pro — Nightfreeze
+item.ex:phone_redmagic_11s_pro_subzero=RedMagic 11S Pro — Subzero
+
+## EX Book
+item.ex:ex_book=EX Book
+
+## Phone Dealer
+entity.ex:phone_dealer.name=EX Phone Dealer
+item.spawn_egg.entity.ex:phone_dealer.name=Spawn EX Phone Dealer
+
+## Creative groups
+ex:itemGroup.name.phones=EconomyX Phones

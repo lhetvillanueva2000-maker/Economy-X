@@ -1,0 +1,17 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ex:phone_huawei_mate_80_pro_dawn_gold",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "ex_phone_huawei_mate_80_pro_dawn_gold",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:should_despawn": false
+    }
+  }
+}

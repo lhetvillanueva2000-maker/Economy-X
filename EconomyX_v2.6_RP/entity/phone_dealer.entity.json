@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ex:phone_dealer",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/ex/phone_dealer" },
+      "geometry": { "default": "geometry.ex_phone_dealer" },
+      "render_controllers": ["controller.render.ex_phone_dealer"],
+      "spawn_egg": { "base_color": "#3E1C46", "overlay_color": "#C8A340" }
+    }
+  }
+}

@@ -14,6 +14,7 @@
  */
 
 import { world, system, EquipmentSlot, ItemStack } from "@minecraft/server";
+import { PHONE_IDS } from "./phone_data.js";
 
 const GUARD_RATE = 40; // ticks between mob sweeps (2 seconds)
 
@@ -25,6 +26,10 @@ const RANKS = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "
  * cards and walks around waving them breaks the fiction, so anything in here
  * is taken back off a mob and returned to the ground.
  *
+ * Phones are in here for a blunter reason than the cards: a phone costs 4,050
+ * UD and cannot be crafted at any price, so a zombie wandering off wearing
+ * one is a genuinely expensive loss rather than a broken bit of fiction.
+ *
  * The EX Tool is deliberately NOT in this list — add "ex:ex_tool" here if you
  * also want mobs barred from picking that up.
  */
@@ -33,6 +38,7 @@ for (const suit of SUITS) for (const rank of RANKS) PLAYER_ONLY.add(`ex:card_${r
 PLAYER_ONLY.add("ex:card_joker_red");
 PLAYER_ONLY.add("ex:card_joker_black");
 PLAYER_ONLY.add("ex:card_face_down");
+for (const id of PHONE_IDS) PLAYER_ONLY.add(id);
 
 const EQUIP_SLOTS = [
   EquipmentSlot.Mainhand,
