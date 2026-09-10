@@ -12,10 +12,20 @@ village phone dealer who will sell you a 4,050 UD handset if you can afford it.
 
 ---
 
+## Download
+
+| File | Direct link |
+|---|---|
+| **`EconomyX_v3.2.mcaddon`** — open it, Minecraft imports both packs | [Download](https://github.com/lhetvillanueva2000-maker/Economy-X/raw/claude/economyx-mod-docs-7xi0ps/dist/EconomyX_v3.2.mcaddon) |
+| `EconomyX_v3.2.zip` — identical content, for unpacking by hand | [Download](https://github.com/lhetvillanueva2000-maker/Economy-X/raw/claude/economyx-mod-docs-7xi0ps/dist/EconomyX_v3.2.zip) |
+
+Both live in [`dist/`](dist/). They are committed to the repository on purpose,
+so there is always a direct download URL.
+
 ## Installing
 
-Download `EconomyX_v3.2.mcaddon` and open it — Minecraft imports both packs
-for you. Then, in your world settings, enable **both**:
+Open the `.mcaddon` — Minecraft imports both packs for you. Then, in your world
+settings, enable **both**:
 
 - `EconomyX v3.2 [BP]` under Behavior Packs
 - `EconomyX v3.2 [RP]` under Resource Packs

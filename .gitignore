@@ -22,3 +22,9 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Built add-on packages are committed on purpose: this session cannot publish
+# GitHub Releases, so dist/ is what provides a real download URL.
+!dist/
+!dist/*.zip
+!dist/*.mcaddon
