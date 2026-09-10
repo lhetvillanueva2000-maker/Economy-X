@@ -71,7 +71,313 @@
       },
       {
         "ex_panel_border@server_form.ex_panel_border": {}
+      }
+    ]
+  },
+  "long_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "ex_skin_layer@server_form.ex_skin_layer": {}
+          }
+        ]
       },
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [
+          {
+            "ex_phone_layer@server_form.ex_phone_layer": {}
+          }
+        ]
+      }
+    ]
+  },
+  "custom_form/": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "ex_skin_layer@server_form.ex_skin_layer": {}
+          }
+        ]
+      },
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [
+          {
+            "ex_phone_layer@server_form.ex_phone_layer": {}
+          }
+        ]
+      }
+    ]
+  },
+  "ex_phone_iphone_17_pro_max": {
+    "type": "image",
+    "texture": "textures/ui/phones/iphone_17_pro_max",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'iPhone 17 Pro Max') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_samsung_galaxy_s26_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/samsung_galaxy_s26_ultra",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Samsung Galaxy S26 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_oppo_find_x9_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/oppo_find_x9_ultra",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'OPPO Find X9 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_vivo_x300_ultra": {
+    "type": "image",
+    "texture": "textures/ui/phones/vivo_x300_ultra",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'vivo X300 Ultra') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_vivo_x500": {
+    "type": "image",
+    "texture": "textures/ui/phones/vivo_x500",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'vivo X500') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_honor_magic9_pro_max": {
+    "type": "image",
+    "texture": "textures/ui/phones/honor_magic9_pro_max",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'HONOR Magic9 Pro Max') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_huawei_mate_80_pro": {
+    "type": "image",
+    "texture": "textures/ui/phones/huawei_mate_80_pro",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Huawei Mate 80 Pro') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_nothing_phone": {
+    "type": "image",
+    "texture": "textures/ui/phones/nothing_phone",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'Nothing Phone') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_redmagic_11s_pro": {
+    "type": "image",
+    "texture": "textures/ui/phones/redmagic_11s_pro",
+    "size": [
+      124,
+      168
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "layer": 20,
+    "visible": false,
+    "bindings": [
+      {
+        "binding_name": "#title_text",
+        "binding_name_override": "#ex_phone_title",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#ex_phone_title - 'RedMagic 11S Pro') = #ex_phone_title))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "offset": [
+      0,
+      26
+    ]
+  },
+  "ex_phone_layer": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 19,
+    "controls": [
       {
         "ex_phone_iphone_17_pro_max@server_form.ex_phone_iphone_17_pro_max": {}
       },
@@ -98,248 +404,6 @@
       },
       {
         "ex_phone_redmagic_11s_pro@server_form.ex_phone_redmagic_11s_pro": {}
-      }
-    ]
-  },
-  "long_form/": {
-    "modifications": [
-      {
-        "array_name": "controls",
-        "operation": "insert_front",
-        "value": [
-          {
-            "ex_skin_layer@server_form.ex_skin_layer": {}
-          }
-        ]
-      }
-    ]
-  },
-  "custom_form/": {
-    "modifications": [
-      {
-        "array_name": "controls",
-        "operation": "insert_front",
-        "value": [
-          {
-            "ex_skin_layer@server_form.ex_skin_layer": {}
-          }
-        ]
-      }
-    ]
-  },
-  "ex_phone_iphone_17_pro_max": {
-    "type": "image",
-    "texture": "textures/ui/phones/iphone_17_pro_max",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'iPhone 17 Pro Max') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_samsung_galaxy_s26_ultra": {
-    "type": "image",
-    "texture": "textures/ui/phones/samsung_galaxy_s26_ultra",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'Samsung Galaxy S26 Ultra') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_oppo_find_x9_ultra": {
-    "type": "image",
-    "texture": "textures/ui/phones/oppo_find_x9_ultra",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'OPPO Find X9 Ultra') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_vivo_x300_ultra": {
-    "type": "image",
-    "texture": "textures/ui/phones/vivo_x300_ultra",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'vivo X300 Ultra') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_vivo_x500": {
-    "type": "image",
-    "texture": "textures/ui/phones/vivo_x500",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'vivo X500') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_honor_magic9_pro_max": {
-    "type": "image",
-    "texture": "textures/ui/phones/honor_magic9_pro_max",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'HONOR Magic9 Pro Max') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_huawei_mate_80_pro": {
-    "type": "image",
-    "texture": "textures/ui/phones/huawei_mate_80_pro",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'Huawei Mate 80 Pro') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_nothing_phone": {
-    "type": "image",
-    "texture": "textures/ui/phones/nothing_phone",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'Nothing Phone') = #ex_phone_title))",
-        "target_property_name": "#visible"
-      }
-    ]
-  },
-  "ex_phone_redmagic_11s_pro": {
-    "type": "image",
-    "texture": "textures/ui/phones/redmagic_11s_pro",
-    "size": [
-      132,
-      264
-    ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": -2,
-    "visible": false,
-    "bindings": [
-      {
-        "binding_name": "#title_text",
-        "binding_name_override": "#ex_phone_title",
-        "binding_type": "global"
-      },
-      {
-        "binding_type": "view",
-        "source_property_name": "(not ((#ex_phone_title - 'RedMagic 11S Pro') = #ex_phone_title))",
-        "target_property_name": "#visible"
       }
     ]
   }

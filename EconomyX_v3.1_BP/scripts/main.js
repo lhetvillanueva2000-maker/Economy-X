@@ -388,11 +388,11 @@ async function openKeypad(player, title, prompt, opts = {}) {
       .body(`${prompt}\n\n§8[ §f§l${shown}§r§8 ]\n§7${entry.length} / ${length}`);
 
     for (const d of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) form.button(`§l${d}`);
-    form.button("§l0");
+    form.button("§0§l0");
     form.button(`§e${deleteLabel}`);
     form.button(`§a§l${confirmLabel}`);
     for (const k of extraKeys) form.button(k);
-    if (showBack) form.button("§7Back");
+    if (showBack) form.button("§0Back");
 
     const res = await form.show(player);
     if (res.canceled) return null;
@@ -1213,7 +1213,7 @@ async function openAtmDenominationMenu(player, cardUid) {
     const maxQty = Math.floor(data.balance / value);
     form.button(`${displayNameFor(typeId)}\n§7${formatMoney(value)} each §8(max ${maxQty})`);
   }
-  form.button("§l⏏ Eject Card");
+  form.button("§0§l⏏ Eject Card");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1332,7 +1332,7 @@ async function openCreditCashAdvanceMenu(player, cardUid) {
     const maxQty = availableCredit === Infinity ? "∞" : Math.floor(availableCredit / value);
     form.button(`${displayNameFor(typeId)}\n§7${formatMoney(value)} each §8(max ${maxQty})`);
   }
-  form.button("§l⏏ Eject Card");
+  form.button("§0§l⏏ Eject Card");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1477,10 +1477,10 @@ async function openUtmDebitMenu(player, cardUid) {
         `§7Transfer Limit: §f${formatMoney(tier.transferLimit)}\n\n` +
         `§8Withdrawals are ATM-only.`
     )
-    .button("§l⬆ Deposit")
-    .button("§l➤ Transfer")
-    .button("§l⏏ Eject Card")
-    .button("§l⚙ Setting");
+    .button("§0§l⬆ Deposit")
+    .button("§0§l➤ Transfer")
+    .button("§0§l⏏ Eject Card")
+    .button("§0§l⚙ Setting");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1510,7 +1510,7 @@ async function openBalanceInfo(player, cardUid) {
         `§7Transfer limit: §f${formatMoney(tier.transferLimit)}\n` +
         `§7Fee: §f${tier.feePercent}%  §7Cashback: §f${tier.cashbackPercent}%`
     )
-    .button("§7Back");
+    .button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1544,7 +1544,7 @@ async function openDepositMenu(player, cardUid) {
   for (const e of available) {
     form.button(`${displayNameFor(e.typeId)} §8x${e.count}\n§7${formatMoney(e.value)} each`);
   }
-  form.button("§7Back");
+  form.button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1659,8 +1659,8 @@ async function openTransferMenu(player, cardUid) {
     );
 
   for (const p of nearby) form.button(`§f${p.name}`);
-  form.button("§b Type username / account no.");
-  form.button("§7Back");
+  form.button("§0 Type username / account no.");
+  form.button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1814,11 +1814,11 @@ async function openSecurityMenu(player, cardUid) {
   const form = new ActionFormData()
     .title(t("Settings"))
     .body("§8More settings will be added in the future.")
-    .button("§l⬤ §rChange Account Number")
-    .button("§l⬤ §rChange Account Pin")
-    .button("§l⬤ §rShow Pin")
-    .button("§l💳 Check Balance")
-    .button("§7Back");
+    .button("§0§l⬤ §rChange Account Number")
+    .button("§0§l⬤ §rChange Account Pin")
+    .button("§0§l⬤ §rShow Pin")
+    .button("§0§l💳 Check Balance")
+    .button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -1845,7 +1845,7 @@ async function openShowPin(player, cardUid, isCredit) {
         `§7PIN: §f§l${data.pin || "—"}\n\n` +
         `§8Only ever shown to the card holder at the terminal.`
     )
-    .button("§7Back");
+    .button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2008,9 +2008,9 @@ async function openPaymentHome(player, cardUid) {
         `§7Credit limit: §f${tier.limit === Infinity ? "Unlimited" : formatMoney(tier.limit)}\n` +
         `§7Interest rate: §f${(effectiveInterestRate(tierKey, data.debt) * 100).toFixed(1)}%`
     )
-    .button("§l⬆ Pay")
-    .button("§l⏏ Eject card")
-    .button("§l⚙ Settings");
+    .button("§0§l⬆ Pay")
+    .button("§0§l⏏ Eject card")
+    .button("§0§l⚙ Settings");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2035,11 +2035,11 @@ async function openCreditSecurityMenu(player, cardUid) {
   const form = new ActionFormData()
     .title(t("Settings"))
     .body("§8More settings will be added in the future.")
-    .button("§l⬤ §rChange Account Number")
-    .button("§l⬤ §rChange Account Pin")
-    .button("§l⬤ §rShow Pin")
-    .button("§l💳 Check Debt Status")
-    .button("§7Back");
+    .button("§0§l⬤ §rChange Account Number")
+    .button("§0§l⬤ §rChange Account Pin")
+    .button("§0§l⬤ §rShow Pin")
+    .button("§0§l💳 Check Debt Status")
+    .button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2070,7 +2070,7 @@ async function openCreditDebtInfo(player, cardUid) {
         `§7Available Credit: §a${available}\n` +
         `§7Interest rate: §f${(effectiveInterestRate(tierKey, data.debt) * 100).toFixed(1)}%`
     )
-    .button("§7Back");
+    .button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2099,7 +2099,7 @@ async function openCreditRepayMenu(player, cardUid) {
   for (const e of available) {
     form.button(`${displayNameFor(e.typeId)} §8x${e.count}\n§7${formatMoney(e.value)} each`);
   }
-  form.button("§7Back");
+  form.button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2197,9 +2197,9 @@ async function openCreditHome(player, cardUid) {
         `§7Credit Limit: §f${tier.limit === Infinity ? "Unlimited" : formatMoney(tier.limit)}\n\n` +
         `§8Use the Debt Payment Block to settle debt.`
     )
-    .button("§l💳 Check Debt Status")
-    .button("§l⚙ Settings")
-    .button("§l⏏ Eject Card");
+    .button("§0§l💳 Check Debt Status")
+    .button("§0§l⚙ Settings")
+    .button("§0§l⏏ Eject Card");
 
   const res = await form.show(player);
   if (res.canceled) {
@@ -2339,13 +2339,13 @@ async function openWagerScreen(player, opts) {
     );
 
   for (const d of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) form.button(`§l${d}`);
-  form.button("§l0");
-  form.button("§eDelete");
+  form.button("§0§l0");
+  form.button("§0Delete");
   form.button(`§a§l${actionLabel}`);
   form.button(`Debit card: ${source === "debit" ? "§aOn" : "§8Off"}`);
   form.button(`Credit card: ${source === "credit" ? "§aOn" : "§8Off"}`);
   form.button(`Cash: ${source === "cash" ? "§aOn" : "§8Off"}`);
-  form.button("§7Back");
+  form.button("§0Back");
 
   const res = await form.show(player);
   if (res.canceled) return { action: "close" };
@@ -2516,9 +2516,9 @@ async function playBlackjackHand(player, source, bet) {
     // Double is only offered on the opening hand, as at a real table — once you
     // have taken a card the option is gone.
     const canDouble = firstDecision && !doubled;
-    if (canDouble) form.button("§lDouble");
-    form.button("§lHit");
-    form.button("§lStand");
+    if (canDouble) form.button("§0§lDouble");
+    form.button("§0§lHit");
+    form.button("§0§lStand");
 
     const res = await form.show(player);
     if (res.canceled) break; // closing the form stands on what you have
@@ -2575,7 +2575,7 @@ async function playBlackjackHand(player, source, bet) {
             ? `§aYou won ${formatMoney(net)} on a ${formatMoney(stake)} stake.`
             : `§cYou lost ${formatMoney(Math.abs(net))} — your ${formatMoney(stake)} stake plus ${formatMoney(round2(stake * CONFIG.gambling.lossPenalty))}.`)
     )
-    .button("§7Back");
+    .button("§0Back");
   await form.show(player);
 
   player.sendMessage(

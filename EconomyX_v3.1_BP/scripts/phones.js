@@ -448,7 +448,7 @@ async function openDealerShop(player, dealer) {
       const p = PHONE_BY_ID.get(id);
       form.button(`${p.name}\n§7${formatMoney(PHONE_PRICE)} §8· ${p.brand}`);
     }
-    form.button("§7Leave");
+    form.button("§0Leave");
 
     const res = await form.show(player);
     if (res.canceled) return;
@@ -492,10 +492,10 @@ async function openPaymentScreen(player, dealer, phoneId) {
           `${debitLine}\n${creditLine}\n${cashLine}\n\n` +
           `§8Cards need your PIN. Cash is handed over on the spot and change comes straight back.`
       )
-      .button("§l💳 Pay by Debit Card\n§8PIN required")
-      .button("§l💳 Pay by Credit Card\n§8PIN required · adds debt")
-      .button("§l💵 Pay in Cash\n§8Change returned automatically")
-      .button("§7Back");
+      .button("§0§l💳 Pay by Debit Card\n§8PIN required")
+      .button("§0§l💳 Pay by Credit Card\n§8PIN required · adds debt")
+      .button("§0§l💵 Pay in Cash\n§8Change returned automatically")
+      .button("§0Back");
 
     const res = await form.show(player);
     if (res.canceled) return false;
@@ -621,7 +621,7 @@ async function openBook(player, page) {
         .title(t("EX Book"))
         .body("§7A plain-language guide to EconomyX.\n§8Pick a chapter.");
       for (const p of BOOK_PAGES) form.button(p.title);
-      form.button("§7Close");
+      form.button("§0Close");
       const res = await form.show(player);
       if (res.canceled || res.selection === BOOK_PAGES.length) return;
       page = res.selection;
@@ -632,9 +632,9 @@ async function openBook(player, page) {
     const form = new ActionFormData()
       .title(t(p.title))
       .body(p.body)
-      .button("§7Contents");
-    if (page > 0) form.button("§7◀ Previous");
-    if (page < BOOK_PAGES.length - 1) form.button("§7Next ▶");
+      .button("§0Contents");
+    if (page > 0) form.button("§0◀ Previous");
+    if (page < BOOK_PAGES.length - 1) form.button("§0Next ▶");
 
     const res = await form.show(player);
     if (res.canceled) return;
@@ -686,9 +686,9 @@ function heldPhone(player) {
 }
 
 const PHONE_BUTTONS = [
-  { label: "\u00a77\u25b2  Volume Up", note: "Volume up" },
-  { label: "\u00a77\u25bc  Volume Down", note: "Volume down" },
-  { label: "\u00a77\u23fb  Power", note: "Power" }
+  { label: "§0▲  Volume Up", note: "Volume up" },
+  { label: "§0▼  Volume Down", note: "Volume down" },
+  { label: "§0⏻  Power", note: "Power" }
 ];
 
 async function openPhoneUi(player, phoneId) {
@@ -706,10 +706,10 @@ async function openPhoneUi(player, phoneId) {
       .title(PHONE_UI_TAG + phone.name)
       // Blank screen, on purpose. These lines give the screen area height
       // without putting anything on it.
-      .body("\n\n\n\n\n\n\n\n\n\n\n\n");
+      .body("\n\n\n\n\n\n\n\n");
 
     for (const b of PHONE_BUTTONS) form.button(b.label);
-    form.button("\u00a78Put away");
+    form.button("§0Put away");
 
     const res = await form.show(player);
     if (res.canceled) return;

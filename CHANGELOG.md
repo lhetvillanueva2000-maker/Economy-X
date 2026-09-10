@@ -10,6 +10,34 @@ the `.mcaddon` / `.zip` are named to match.
 
 ---
 
+## 3.1
+
+### Fixed
+- **Every button label was unreadable.** Bedrock draws form buttons light grey,
+  and most labels were pale grey (`§7`), yellow or cyan on top of that — text
+  only appeared when hover turned a button green. All **51** button labels
+  across the mod are now black. This was never phone-specific; the bank menus,
+  the keypads and the EX Book all had it.
+- **The phone screen art never showed.** It lived in the layer that is inserted
+  at the FRONT of the form's controls, which draws BEHIND the form's own
+  background. The nine handset fronts now sit in their own layer inserted at the
+  BACK so they draw over it, anchored to the top of the form so the buttons
+  underneath stay clickable. The bank skin keeps its original behind-the-form
+  layer, untouched.
+
+### Changed
+- **Facing, read off testing rather than inferred.** First person and third
+  person look at the hand bone from about 90 degrees apart, so one Y rotation
+  cannot show a flat face in both — which is why there are two animations.
+  Testing showed first person at Y=215 looking straight at the camera module and
+  third person at Y=215 edge-on, so first person moves to **35** (215-180, screen
+  toward you) and third person to **125** (215-90, a face rather than an edge).
+- **The phone is held like you are looking at it**, not like a flagpole: first
+  person tilts to -42 with a slight roll. The playing card was leaning too far
+  and eases back to -30.
+
+---
+
 ## 3.0
 
 ### Fixed

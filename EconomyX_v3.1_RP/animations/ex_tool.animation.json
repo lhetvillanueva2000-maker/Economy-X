@@ -1,0 +1,81 @@
+{
+  "__comment__": [
+    "EconomyX \u2014 held poses.",
+    "",
+    "POSITION STAYS [0,0,0]. A bone animation's position is applied in the bone's",
+    "OWN ROTATED frame, so a lift combined with a rotation slides the model sideways",
+    "instead of up. The hand height is baked into the GEOMETRY instead (cubes shifted",
+    "so the centre sits at y=22, pivot [0,22,0]), the way Microsoft's wrench sample",
+    "does it. Geometry coordinates are never rotated, so that offset holds.",
+    "",
+    "FIRST PERSON AND THIRD PERSON NEED DIFFERENT Y ROTATIONS.",
+    "The two views look at the hand bone from about 90 degrees apart, so a single Y",
+    "value cannot show a flat face in both. That is exactly why there are two",
+    "animations. Read off real testing:",
+    "  first person  Y=215 showed the CAMERA face-on -> screen needs 215-180 = 35",
+    "  third person  Y=215 showed the phone EDGE-ON  -> a face needs 215-90  = 125",
+    "",
+    "TUNING",
+    "  wrong side toward you ....... add or subtract 180 from rotation[1]",
+    "  showing its edge, not a face  add or subtract 90 from rotation[1]",
+    "  held too upright / stiff .... make rotation[0] more negative (more tilt)",
+    "  too big or small ............ change scale"
+  ],
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ex_tool.third_person": {
+      "loop": true,
+      "bones": {
+        "ex_tool": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            90,
+            0
+          ],
+          "scale": 0.85
+        }
+      }
+    },
+    "animation.ex_tool.first_person": {
+      "loop": true,
+      "bones": {
+        "ex_tool": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.95
+        }
+      }
+    },
+    "animation.ex_tool.bob": {
+      "loop": true,
+      "bones": {
+        "ex_tool": {
+          "rotation": [
+            0,
+            "q.life_time * 42",
+            0
+          ],
+          "position": [
+            0,
+            "-20 + math.sin(q.life_time * 110) * 0.9",
+            0
+          ],
+          "scale": 0.5
+        }
+      }
+    }
+  }
+}
